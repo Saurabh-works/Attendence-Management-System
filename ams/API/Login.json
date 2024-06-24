@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "userid": "Teacher@123",
+      "password": "123",
+      "role": "admin",
+      "id": "2486"
+    },
+    {
+      "userid": "Student@123",
+      "password": "000",
+      "role": "student",
+      "id": "ca45"
+    },
+    {
+      "id": "d656",
+      "userid": "Saurabh",
+      "password": "12345",
+      "role": "student"
+    }
+  ]
+}
