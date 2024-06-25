@@ -1,8 +1,8 @@
 import React from 'react'
 
-function AdminPanel_index() {
+function AdminPanelIndex() {
   return (
     <div>AdminPanel_index</div>
   )
 }
-export default AdminPanel_index;
+export default AdminPanelIndex;

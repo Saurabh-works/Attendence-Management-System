@@ -2,18 +2,18 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import SignUp from './SignUp';
-import AdminPanel_index from '../AdminPanelComponent/AdminPanel_index';
-import StudentPanel_index from '../StudentPanelComponent/StudentPanel_index';
+import AdminPanelIndex from '../AdminPanelComponent/AdminPanelIndex';
+import StudentPanelIndex from '../StudentPanelComponent/StudentPanelIndex';
 
-function Login_index() {
+function LoginIndex() {
   return (
     <BrowserRouter>
     <div className="App">
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/admin" element={<AdminPanel_index />} />
-        <Route path="/student" element={<StudentPanel_index />} />
+        <Route path="/admin" element={<AdminPanelIndex />} />
+        <Route path="/student" element={<StudentPanelIndex />} />
         <Route path="/" element={<Login />} />
       </Routes>
     </div>
@@ -21,4 +21,4 @@ function Login_index() {
   );
 }
 
-export default Login_index;
+export default LoginIndex;

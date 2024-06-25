@@ -38,6 +38,7 @@ function Login() {
         <div>
           <label>UserID:</label>
           <input
+          className='border'
             type="text"
             value={userid}
             onChange={(e) => setUserid(e.target.value)}
@@ -47,6 +48,7 @@ function Login() {
         <div>
           <label>Password:</label>
           <input
+          className='border'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -55,15 +57,15 @@ function Login() {
         </div>
         <div>
           <label>Role:</label>
-          <select value={role} onChange={(e) => setRole(e.target.value)} required>
+          <select className='border' value={role} onChange={(e) => setRole(e.target.value)} required>
             <option value="">Select Role</option>
             <option value="admin">Admin</option>
             <option value="student">Student</option>
           </select>
         </div>
-        <button type="submit">Submit</button>
+        <button className=' p-1 bg-slate-900 text-white' type="submit">Submit</button>
       </form>
-      <p>Don't have an account? <NavLink to="/signup">Sign Up</NavLink></p>
+      <p>Don't have an account? <NavLink to="/signup"><span className='text-blue-500'>Sign up</span></NavLink></p>
     </div>
   );
 }
