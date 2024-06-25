@@ -17,6 +17,12 @@
       "userid": "Saurabh",
       "password": "12345",
       "role": "student"
+    },
+    {
+      "id": "074e",
+      "userid": "Aniket",
+      "password": "Aniket@123",
+      "role": "student"
     }
   ]
 }
