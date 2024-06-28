@@ -29,6 +29,12 @@
       "userid": "aniketgawai88@gmail.com",
       "password": "Aniket@2002",
       "role": "student"
+    },
+    {
+      "id": "337e",
+      "userid": "Vivek@123",
+      "password": "123",
+      "role": "student"
     }
   ]
 }
