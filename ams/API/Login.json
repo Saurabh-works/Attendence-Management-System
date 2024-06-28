@@ -74,8 +74,13 @@
       "batch": "B"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Rutuja Tambe",
+      "batch": "A"
+    },
+    {
+      "id": 9,
+      "name": "Rutuja Sasane",
       "batch": "A"
     }
   ],
@@ -142,6 +147,26 @@
         },
         {
           "studentId": "5",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-07-01": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
           "status": "Present"
         }
       ]
