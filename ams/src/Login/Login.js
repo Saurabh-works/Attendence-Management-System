@@ -45,6 +45,43 @@ function Login() {
   };
 
   return (
+<<<<<<< HEAD
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>UserID:</label>
+          <input
+          className='border'
+            type="text"
+            value={userid}
+            onChange={(e) => setUserid(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+          className='border'
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Role:</label>
+          <select className='border' value={role} onChange={(e) => setRole(e.target.value)} required>
+            <option value="">Select Role</option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+        <button className=' p-1 bg-slate-900 text-white' type="submit">Submit</button>
+      </form>
+      <p>Don't have an account? <NavLink to="/signup"><span className='text-blue-500'>Sign up</span></NavLink></p>
+    </div>
+=======
     <>
 
       <Container component="main" maxWidth="xs">
@@ -137,6 +174,7 @@ function Login() {
         </Box>
       </Container>
     </>
+>>>>>>> 7e42c974d54201bfdbbf8e87336408e342774a18
   );
 }
 
