@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+<<<<<<< HEAD
+=======
+
+*{
+    margin: 0;
+    padding: 0;
+}
+>>>>>>> 349e8ac4b78da43929ee8819c49ca8c894d2d10a
