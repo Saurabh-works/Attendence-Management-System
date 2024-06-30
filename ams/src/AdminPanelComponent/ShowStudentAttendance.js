@@ -5,7 +5,7 @@ const ShowStudentAttendance = () => {
   const [studentId, setStudentId] = useState('');
   const [date, setDate] = useState('');
   const [attendanceDetails, setAttendanceDetails] = useState(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(''); 
 
   const handleFetchAttendance = async () => {
     if (!studentId || !date) {
