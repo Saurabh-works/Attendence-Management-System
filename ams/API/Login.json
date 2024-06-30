@@ -36,5 +36,166 @@
       "password": "12345",
       "role": "student"
     }
-  ]
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Saurabh Shinde",
+      "batch": "A"
+    },
+    {
+      "id": "2",
+      "name": "Aniket Gawai",
+      "batch": "A"
+    },
+    {
+      "id": "3",
+      "name": "Tilakchand dhake",
+      "batch": "B"
+    },
+    {
+      "id": "4",
+      "name": "Sanket Kautkar",
+      "batch": "B"
+    },
+    {
+      "id": "5",
+      "name": "Pratik Phadtare",
+      "batch": "A"
+    },
+    {
+      "id": "6",
+      "name": "vivek",
+      "batch": "B"
+    },
+    {
+      "id": "7",
+      "name": "Vanshita",
+      "batch": "B"
+    },
+    {
+      "id": "8",
+      "name": "Rutuja Tambe",
+      "batch": "A"
+    },
+    {
+      "id": "9",
+      "name": "Rutuja Sasane",
+      "batch": "A"
+    }
+  ],
+  "attendance": {
+    "2024-06-29": {
+      "B": [
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "4",
+          "status": "Absent"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        }
+      ],
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        }
+      ]
+    },
+    "2024-06-30": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        }
+      ],
+      "B": [
+        {
+          "studentId": "3",
+          "status": "Present"
+        },
+        {
+          "studentId": "4",
+          "status": "Absent"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        }
+      ]
+    },
+    "2024-07-02": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-07-01": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        }
+      ]
+    }
+  }
 }
