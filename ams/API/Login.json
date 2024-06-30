@@ -84,13 +84,18 @@
       "batch": "A"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Shivanjali",
       "batch": "B"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Swaraj Jadhav",
+      "batch": "A"
+    },
+    {
+      "id": 12,
+      "name": "Rutuja Kore",
       "batch": "A"
     }
   ],
@@ -345,6 +350,66 @@
         },
         {
           "studentId": "10",
+          "status": "Absent"
+        }
+      ]
+    },
+    "2024-06-08": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-06-12": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        },
+        {
+          "studentId": "11",
+          "status": "Absent"
+        },
+        {
+          "studentId": "12",
           "status": "Absent"
         }
       ]
