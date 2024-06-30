@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const ShowBatchAttendance = () => {
-  const [batch, setBatch] = useState('');
+  const [batch, setBatch] = useState(''); 
   const [date, setDate] = useState('');
   const [attendanceDetails, setAttendanceDetails] = useState([]);
   const [error, setError] = useState('');
