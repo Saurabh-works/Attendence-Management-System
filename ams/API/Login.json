@@ -79,9 +79,24 @@
       "batch": "A"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Rutuja Sasane",
       "batch": "A"
+    },
+    {
+      "id": 10,
+      "name": "Shivanjali Rakhunde",
+      "batch": "A"
+    },
+    {
+      "id": 11,
+      "name": "Shivanjali Rakhunde",
+      "batch": "A"
+    },
+    {
+      "id": 12,
+      "name": "Rutuja Kore",
+      "batch": "B"
     }
   ],
   "attendance": {
@@ -167,6 +182,38 @@
         },
         {
           "studentId": "8",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-06-11": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        },
+        {
+          "studentId": "10",
+          "status": "Absent"
+        },
+        {
+          "studentId": "11",
           "status": "Present"
         }
       ]
