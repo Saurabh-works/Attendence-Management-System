@@ -29,17 +29,17 @@ const StudentDataTable = () => {
 
   return (
     <div>
-      <h2>Student Data Table</h2>
+      <h2 className='font-bold'>Student Data Table</h2>
       <div>
         <label>Select Batch: </label>
         <select value={selectedBatch} onChange={handleBatchChange}>
           <option value="">All Batches</option>
-          <option value="A">Batch A</option>
-          <option value="B">Batch B</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
           
         </select>
-      </div>
-      <table>
+      </div> <br/>
+      <table width={500} className='border border-s-neutral-500'>
         <thead>
           <tr>
             <th>Student ID</th>

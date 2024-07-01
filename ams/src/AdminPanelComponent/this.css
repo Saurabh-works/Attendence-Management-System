@@ -1,0 +1,3 @@
+select.outlineRemove:focus{
+    outline: none;
+}
