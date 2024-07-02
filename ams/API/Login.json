@@ -37,6 +37,8 @@
       "role": "student"
     }
   ],
+
+
   "students": [
     {
       "id": "1",
@@ -51,12 +53,12 @@
     {
       "id": "3",
       "name": "Tilakchand dhake",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "4",
       "name": "Sanket Kautkar",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "5",
@@ -66,12 +68,12 @@
     {
       "id": "6",
       "name": "vivek",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "7",
       "name": "Vanshita",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "8",
@@ -114,6 +116,8 @@
       "batch": "B"
     }
   ],
+
+
   "attendance": {
     "2024-06-29": {
       "B": [
@@ -131,6 +135,7 @@
         }
       ]
     },
+
     "2024-06-30": {
       "A": [
         {
@@ -146,6 +151,7 @@
           "status": "Absent"
         }
       ],
+
       "B": [
         {
           "studentId": "3",
@@ -165,6 +171,7 @@
         }
       ]
     },
+
     "2024-07-02": {
       "A": [
         {
@@ -181,6 +188,7 @@
         }
       ]
     },
+    
     "2024-07-01": {
       "A": [
         {

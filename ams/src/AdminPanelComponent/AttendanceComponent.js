@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './this.css';
 
 const AttendanceComponent = () => {
   const [students, setStudents] = useState([]);
@@ -50,23 +51,25 @@ const AttendanceComponent = () => {
   const filteredStudents = students.filter(student => student.batch === batch);
 
   return (
-    <div>
-      <h2>Manual Attendance</h2>
-      <div>
-        <label>Batch: </label>
-        <select value={batch} onChange={(e) => setBatch(e.target.value)}>
+    <div className=''>
+     <div className='flex bg-blue-400  items-center gap-7'>
+     <h2 className='p-2  text-white text-[20px]'>Admin Panel Attendance</h2>
+      <div className='w-auto'>
+      <label className='text-white'>Batch: </label>
+        <select value={batch} className='inline-block p-2 outlineRemove' onChange={(e) => setBatch(e.target.value)}>
           <option value="">Select Batch</option>
           <option value="A">A</option>
           <option value="B">B</option>
         </select>
       </div>
       <div>
-        <label>Date: </label>
+        <label className='text-white'>Date: </label>
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
       </div>
-      <table>
+     </div>
+      <table className='Attendancemarktable' style={{border:"2px solid black", width:"100%" }}>
         <thead>
-          <tr>
+          <tr className='' style={{border:"2px solid black"}}>
             <th>Student ID</th>
             <th>Name</th>
             <th>Batch</th>
@@ -75,20 +78,23 @@ const AttendanceComponent = () => {
         </thead>
         <tbody>
           {filteredStudents.map(student => (
-            <tr key={student.id}>
+            <tr key={student.id} style={{border:"2px solid black"}}>
               <td>{student.id}</td>
               <td>{student.name}</td>
               <td>{student.batch}</td>
-              <td>
-                <button onClick={() => handleAttendance(student.id, 'Present')}>Present</button>
-                <button onClick={() => handleAttendance(student.id, 'Absent')}>Absent</button>
+              <td className='flex gap-5'>
+                <button className='border border-red bg-red-500 p-1 rounded-md px-2 text-white' onClick={() => handleAttendance(student.id, 'Absent')}>Absent</button>
+                <button className='border border-red bg-green-500 p-1 rounded-md px-2 text-white' onClick={() => handleAttendance(student.id, 'Present')}>Present</button>
               </td>
             </tr>
           ))}
         </tbody>
-      </table>
-      <button onClick={handleSubmit}>Submit Attendance</button>
+      </table><br/>
+      <button className='p-1 bg-green-500 rounded-sm text-white ' onClick={handleSubmit}>Submit Attendance</button>
+      <br/>
     </div>
+
+
   );
 };
 

@@ -48,15 +48,19 @@ const componentPDF = useRef();
 
   return (
     <div>
-      <h2>Student Data Table</h2>
+      <h2 className='font-bold'>Student Data Table</h2>
       <div>
         <label>Select Batch: </label>
         <select value={selectedBatch} onChange={handleBatchChange}>
           <option value="">All Batches</option>
-          <option value="A">Batch A</option>
-          <option value="B">Batch B</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
           
         </select>
+<<<<<<< HEAD
+      </div> <br/>
+      <table width={500} className='border border-s-neutral-500'>
+=======
       </div>
 
       {/* shivanjali made this */}
@@ -64,6 +68,7 @@ const componentPDF = useRef();
 
 
       <table>
+>>>>>>> 219b08c6987eef5e656f18da79de34901d026122
         <thead>
           <tr>
             <th>Student ID</th>

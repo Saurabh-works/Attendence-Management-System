@@ -19,7 +19,10 @@ import { Link, Route} from "react-router-dom"
 function AdminPanelIndex() {
   return (
     <>
+<<<<<<< HEAD
       {/* <div>AdminPanel_index</div> <hr/> <br/> <br/>
+=======
+>>>>>>> 879e0731c9dc2976e3a2656cc2ad54cd9cec559c
       <AttendanceComponent></AttendanceComponent> <hr/> <br/> <br/>
       <UpdateNewStudentData></UpdateNewStudentData> <hr/> <br/> <br/>
       <StudentDataTable></StudentDataTable> <hr/> <br/> <br/>
