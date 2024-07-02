@@ -57,10 +57,6 @@ const componentPDF = useRef();
           <option value="B">B</option>
           
         </select>
-<<<<<<< HEAD
-      </div> <br/>
-      <table width={500} className='border border-s-neutral-500'>
-=======
       </div>
 
       {/* shivanjali made this */}
@@ -68,7 +64,6 @@ const componentPDF = useRef();
 
 
       <table>
->>>>>>> 219b08c6987eef5e656f18da79de34901d026122
         <thead>
           <tr>
             <th>Student ID</th>

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import { useReactToPrint } from "react-to-print"; 
 
 const ShowStudentAttendance = () => {
+  const componentPDF = useRef();
+
   const [studentId, setStudentId] = useState('');
   const [date, setDate] = useState('');
   const [attendanceDetails, setAttendanceDetails] = useState(null);
@@ -39,9 +42,19 @@ const ShowStudentAttendance = () => {
     }
   };
 
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle:"StudentDataTable",
+    onAfterPrint: ()=> alert("Data saved in PDF")
+
+  });
+
   return (
+    <>
+    
     <div>
       <h2>Show Student Attendance</h2>
+      <div ref={componentPDF} >
       <div>
         <label>Student ID: </label>
         <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
@@ -62,6 +75,12 @@ const ShowStudentAttendance = () => {
         </div>
       )}
     </div>
+    </div>
+
+<div>
+<button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
+</div>
+</>
   );
 };
 

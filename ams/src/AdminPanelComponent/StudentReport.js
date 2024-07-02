@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import { useReactToPrint } from "react-to-print";
 
 const StudentReport = () => {
+  const componentPDF = useRef();
   const [batch, setBatch] = useState('');
   const [studentId, setStudentId] = useState('');
   const [month, setMonth] = useState('');
@@ -68,10 +70,18 @@ const StudentReport = () => {
       await fetchAttendance(batch, studentId, month);
     }
   };
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle:"StudentDataTable",
+    onAfterPrint: ()=> alert("Data saved in PDF")
+
+  });
 
   return (
+    <>
     <div>
       <h2>Student Monthly Attendance Report</h2>
+      <div ref={componentPDF} >
       <div>
         <label>Batch: </label>
         <input type="text" value={batch} onChange={(e) => setBatch(e.target.value)} />
@@ -118,6 +128,11 @@ const StudentReport = () => {
         </div>
       )}
     </div>
+    </div>
+    <div>
+    <button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
+ </div>
+ </>
   );
 };
 
