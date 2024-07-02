@@ -53,7 +53,7 @@ const AttendanceComponent = () => {
   return (
     <div className=''>
      <div className='flex bg-blue-400  items-center gap-7'>
-     <h2 className='p-2  text-white text-[20px]'> Attendance</h2>
+     <h2 className='p-2  text-white text-[20px]'>Admin Panel Attendance</h2>
       <div className='w-auto'>
       <label className='text-white'>Batch: </label>
         <select value={batch} className='inline-block p-2 outlineRemove' onChange={(e) => setBatch(e.target.value)}>
@@ -67,9 +67,9 @@ const AttendanceComponent = () => {
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
       </div>
      </div>
-      <table>
+      <table className='Attendancemarktable' style={{border:"2px solid black", width:"100%" }}>
         <thead>
-          <tr>
+          <tr className='' style={{border:"2px solid black"}}>
             <th>Student ID</th>
             <th>Name</th>
             <th>Batch</th>
@@ -78,7 +78,7 @@ const AttendanceComponent = () => {
         </thead>
         <tbody>
           {filteredStudents.map(student => (
-            <tr key={student.id}>
+            <tr key={student.id} style={{border:"2px solid black"}}>
               <td>{student.id}</td>
               <td>{student.name}</td>
               <td>{student.batch}</td>

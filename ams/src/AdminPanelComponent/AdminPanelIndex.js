@@ -9,7 +9,6 @@ import StudentReport from './StudentReport';
 function AdminPanelIndex() {
   return (
     <>
-      <div>AdminPanel_index</div> <hr/> <br/> <br/>
       <AttendanceComponent></AttendanceComponent> <hr/> <br/> <br/>
       <UpdateNewStudentData></UpdateNewStudentData> <hr/> <br/> <br/>
       <StudentDataTable></StudentDataTable> <hr/> <br/> <br/>
