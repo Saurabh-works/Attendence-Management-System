@@ -63,7 +63,7 @@ function Login() {
             flexDirection: "column",
             alignItems: "center",
             padding: "25px",
-            boxShadow: "10px 10px 10px #cecece",
+            boxShadow: "0px 0px 10px #cecece", 
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>

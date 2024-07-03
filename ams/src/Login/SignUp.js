@@ -52,7 +52,7 @@ function SignUp() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            boxShadow: "10px 10px 10px #cecece",
+            boxShadow: "0px 0px 10px #cecece",
             padding:"25px"
           }}
         >

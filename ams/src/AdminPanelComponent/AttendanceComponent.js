@@ -73,55 +73,9 @@ const AttendanceComponent = () => {
 
   return (
     <>
-      <h2>Manual Attendance</h2>
-      <div>
-        <label>Batch: </label>
-        <select value={batch} onChange={(e) => setBatch(e.target.value)}>
-          <option value="">Select Batch</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-        </select>
-      </div>
-      <div>
-        <label>Date: </label>
-        <input
-          type="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-        />
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Student ID</th>
-            <th>Name</th>
-            <th>Batch</th>
-            <th>Attendance</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredStudents.map((student) => (
-            <tr key={student.id}>
-              <td>{student.id}</td>
-              <td>{student.name}</td>
-              <td>{student.batch}</td>
-              <td>
-                <button onClick={() => handleAttendance(student.id, "Present")}>
-                  Present
-                </button>
-                <button onClick={() => handleAttendance(student.id, "Absent")}>
-                  Absent
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <button onClick={handleSubmit}>Submit Attendance</button>
-
       <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <Box component="div" sx={{ mt: 3 }}>
+        <Box component="div" sx={{ mt: 3 }} >
           <Grid container spacing={2}>
             <Grid item  md={6} lg={6} xs={12}>
               <FormControl fullWidth>
@@ -153,10 +107,10 @@ const AttendanceComponent = () => {
             <Table sx={{textAlign:"center"}}>
               <TableHead>
                 <TableRow>
-                  <TableCell>Student ID</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Batch</TableCell>
-                  <TableCell>Attendance</TableCell>
+                  <TableCell align="center">Student ID</TableCell>
+                  <TableCell align="center">Name</TableCell>
+                  <TableCell align="center">Batch</TableCell>
+                  <TableCell align="center">Attendance</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -185,7 +139,7 @@ const AttendanceComponent = () => {
             </Grid>
 
             <Grid item md={12} lg={12} xs={12}>
-            <Button variant="contained" onClick={handleSubmit}>Submit Attendance</Button>
+            <Button variant="contained" fullWidth onClick={handleSubmit}>Submit Attendance</Button>
             </Grid>
           </Grid>
         </Box>
