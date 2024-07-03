@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { useReactToPrint } from "react-to-print";
+import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
+
 
 const StudentReport = () => {
   const componentPDF = useRef();
@@ -77,11 +79,14 @@ const StudentReport = () => {
 
   });
 
+
+
   return (
     <>
     <div>
       <h2>Student Monthly Attendance Report</h2>
       <div ref={componentPDF} >
+      
       <div>
         <label>Batch: </label>
         <input type="text" value={batch} onChange={(e) => setBatch(e.target.value)} />
@@ -125,6 +130,27 @@ const StudentReport = () => {
           <h3>Total Attendance</h3>
           <p>Present: {totalAttendance.present}</p>
           <p>Absent: {totalAttendance.absent}</p>
+          <PieChart
+      series={[
+        {
+          data : [
+            { id: 0, value: totalAttendance.present, label: 'Present' },
+            { id: 1, value: totalAttendance.absent, label: 'Absent' },
+          ],
+          arcLabel: (item) => `${item.label} (${item.value})`,
+          arcLabelMinAngle: 45,
+          
+        },
+      ]}
+      sx={{
+        [`& .${pieArcLabelClasses.root}`]: {
+          fill: 'white',
+          fontWeight: 'bold',
+        },
+      }}
+      width={700}
+      height={350}
+    />
         </div>
       )}
     </div>
