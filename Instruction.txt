@@ -13,7 +13,7 @@ for new pull request:
 for json management:
 
 install json: npm install -g json-server
-staring login server: json-server --watch login.json --port 5000
+staring login server: json-server --watch Login.json --port 5000
 
 
 
