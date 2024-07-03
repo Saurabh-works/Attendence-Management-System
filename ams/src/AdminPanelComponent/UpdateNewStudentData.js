@@ -35,10 +35,11 @@ const UpdateNewStudentData = () => {
 
   return (
     <div>
+      <h1 className='font-bold'>Update Student Data Component</h1>
       <h2>Add New Student</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>ID: </label>
+          <label>ID:</label>
           <input
             type="number"
             value={studentId}

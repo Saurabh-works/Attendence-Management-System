@@ -3,6 +3,7 @@ import AttendanceComponent from './AttendanceComponent';
 import UpdateNewStudentData from './UpdateNewStudentData';
 import StudentDataTable from './StudentDataTable';
 
+
 function AdminPanelIndex() {
   return (
     <div className='flex bg-blue-600'>

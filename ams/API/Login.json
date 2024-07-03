@@ -35,6 +35,12 @@
       "userid": "Saurabh",
       "password": "12345",
       "role": "student"
+    },
+    {
+      "id": "30ce",
+      "userid": "tilakchanddhake6143@gmail.com",
+      "password": "6143",
+      "role": "admin"
     }
   ],
   "students": [
@@ -51,12 +57,12 @@
     {
       "id": "3",
       "name": "Tilakchand dhake",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "4",
       "name": "Sanket Kautkar",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "5",
@@ -66,12 +72,12 @@
     {
       "id": "6",
       "name": "vivek",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "7",
       "name": "Vanshita",
-      "batch": "B"
+      "batch": "A"
     },
     {
       "id": "8",
@@ -94,9 +100,24 @@
       "batch": "A"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Rutuja Kore",
       "batch": "A"
+    },
+    {
+      "id": "13",
+      "name": "Aaruksha",
+      "batch": "B"
+    },
+    {
+      "id": "13",
+      "name": "Aaruksha",
+      "batch": "B"
+    },
+    {
+      "id": "12",
+      "name": "Aaruksha",
+      "batch": "B"
     }
   ],
   "attendance": {
@@ -182,6 +203,28 @@
         },
         {
           "studentId": "8",
+          "status": "Present"
+        }
+      ],
+      "B": [
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "10",
           "status": "Present"
         }
       ]
@@ -410,6 +453,58 @@
         },
         {
           "studentId": "12",
+          "status": "Absent"
+        }
+      ]
+    },
+    "2024-07-03": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Absent"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "3",
+          "status": "Present"
+        },
+        {
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Present"
+        },
+        {
+          "studentId": "13",
           "status": "Absent"
         }
       ]

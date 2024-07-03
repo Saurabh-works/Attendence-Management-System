@@ -1,8 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  useRef} from 'react';
 import axios from 'axios';
 
+// npm install react-to-print 
+
+import { useReactToPrint } from "react-to-print";  // To save table data in pdf form
+
 const StudentDataTable = () => {
+
+//Shivanjali made this changes
+const componentPDF = useRef();
+
   const [students, setStudents] = useState([]);
   const [selectedBatch, setSelectedBatch] = useState('');
 
@@ -27,18 +35,34 @@ const StudentDataTable = () => {
     ? students.filter(student => student.batch === selectedBatch)
     : students;
 
+
+    // Shivanjali Made this
+
+    const generatePDF = useReactToPrint({
+      content: () => componentPDF.current,
+      documentTitle:"StudentDataTable",
+      onAfterPrint: ()=> alert("Data saved in PDF")
+
+    });
+
+
   return (
     <div>
-      <h2>Student Data Table</h2>
+      <h2 className='font-bold'>Student Data Table</h2>
       <div>
         <label>Select Batch: </label>
         <select value={selectedBatch} onChange={handleBatchChange}>
           <option value="">All Batches</option>
-          <option value="A">Batch A</option>
-          <option value="B">Batch B</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
           
         </select>
       </div>
+
+      {/* shivanjali made this */}
+      <div ref={componentPDF} >
+
+
       <table>
         <thead>
           <tr>
@@ -57,6 +81,18 @@ const StudentDataTable = () => {
           ))}
         </tbody>
       </table>
+
+
+      </div>
+
+
+      {/* Shivanjali made this changes */}
+      <div>
+         <button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
+      </div>
+
+
+
     </div>
   );
 };
