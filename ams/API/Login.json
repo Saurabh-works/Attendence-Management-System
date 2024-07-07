@@ -118,6 +118,11 @@
       "id": "12",
       "name": "Aaruksha",
       "batch": "B"
+    },
+    {
+      "id": 14,
+      "name": "Anjali",
+      "batch": "A"
     }
   ],
   "attendance": {
@@ -286,7 +291,28 @@
           "status": "Present"
         },
         {
+<<<<<<< HEAD
           "studentId": "5",
+          "status": "Present"
+=======
+          "studentId": "3",
+          "status": "Absent"
+>>>>>>> 0e1884c82dccb766d469e222cd98fe4885a87e16
+        },
+        {
+          "studentId": "4",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Absent"
+        },
+        {
+          "studentId": "7",
           "status": "Present"
         },
         {
@@ -296,6 +322,17 @@
         {
           "studentId": "9",
           "status": "Present"
+<<<<<<< HEAD
+=======
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Present"
+>>>>>>> 0e1884c82dccb766d469e222cd98fe4885a87e16
         }
       ],
       "B": [
@@ -483,27 +520,7 @@
       "A": [
         {
           "studentId": "1",
-          "status": "Present"
-        },
-        {
-          "studentId": "2",
           "status": "Absent"
-        },
-        {
-          "studentId": "5",
-          "status": "Present"
-        },
-        {
-          "studentId": "8",
-          "status": "Present"
-        },
-        {
-          "studentId": "9",
-          "status": "Present"
-        },
-        {
-          "studentId": "11",
-          "status": "Present"
         }
       ]
     },
@@ -539,11 +556,19 @@
         }
       ]
     },
+<<<<<<< HEAD
+    "2024-06-01": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+=======
     "2024-07-03": {
       "A": [
         {
           "studentId": "1",
           "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
         },
         {
           "studentId": "2",
@@ -554,12 +579,9 @@
           "status": "Present"
         },
         {
-          "studentId": "4",
-          "status": "Present"
-        },
-        {
+<<<<<<< HEAD
           "studentId": "5",
-          "status": "Absent"
+          "status": "Present"
         },
         {
           "studentId": "6",
@@ -571,11 +593,55 @@
         },
         {
           "studentId": "8",
-          "status": "Present"
+          "status": "Absent"
         },
         {
           "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
           "status": "Absent"
+        }
+      ]
+    },
+    "2024-06-03": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
         },
         {
           "studentId": "11",
@@ -584,9 +650,127 @@
         {
           "studentId": "12",
           "status": "Present"
+        }
+      ]
+    },
+    "2024-06-04": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "4",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+=======
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+<<<<<<< HEAD
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+=======
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Present"
+<<<<<<< HEAD
+        }
+      ]
+    },
+    "2024-06-05": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-06-02": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+=======
         },
         {
           "studentId": "13",
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
           "status": "Absent"
         }
       ],
