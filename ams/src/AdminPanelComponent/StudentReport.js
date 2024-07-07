@@ -153,7 +153,7 @@ const StudentReport = () => {
               component="form"
               sx={{ mt: 3, display: "flex", justifyContent: "center" }}
             >
-              <Grid container spacing={2}>
+               <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                   <FormControl fullWidth>
                     <InputLabel>Select Batch</InputLabel>
