@@ -75,9 +75,9 @@ const AttendanceComponent = () => {
     <>
       <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <Box component="div" sx={{ mt: 3 }} >
+        <Box component="div" sx={{ mt: 3 }}>
           <Grid container spacing={2}>
-            <Grid item  md={6} lg={6} xs={12}>
+            <Grid item md={6} lg={6} xs={12}>
               <FormControl fullWidth>
                 <InputLabel>Select Batch</InputLabel>
                 <Select
@@ -92,7 +92,7 @@ const AttendanceComponent = () => {
               </FormControl>
             </Grid>
 
-            <Grid item  md={6} lg={6} xs={12}>
+            <Grid item md={6} lg={6} xs={12}>
               <FormControl fullWidth>
                 <TextField
                   type="date"
@@ -103,43 +103,71 @@ const AttendanceComponent = () => {
             </Grid>
 
             <Grid item md={12} lg={12} xs={12}>
-              <TableContainer component={"paper"} sx={{textAlign:"center"}} >
-            <Table sx={{textAlign:"center"}}>
-              <TableHead>
-                <TableRow>
-                  <TableCell align="center">Student ID</TableCell>
-                  <TableCell align="center">Name</TableCell>
-                  <TableCell align="center">Batch</TableCell>
-                  <TableCell align="center">Attendance</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredStudents.map((student) => (
-                  <TableRow key={student.id}>
-                    <TableCell>{student.id}</TableCell>
-                    <TableCell>{student.name}</TableCell>
-                    <TableCell>{student.batch}</TableCell>
-                    <TableCell>
-                      <Button variant="outlined" sx={{me:3}}
-                        onClick={() => handleAttendance(student.id, "Present")}
-                      >
-                        Present
-                      </Button>
-                      <Button variant="outlined" color="secondary" sx={{marginLeft:"10px"}}
-                        onClick={() => handleAttendance(student.id, "Absent")}
-                      >
-                        Absent
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            </TableContainer>
+              <TableContainer component={"paper"} sx={{ textAlign: "center" }}>
+                <Table
+                  sx={{ textAlign: "center" }}
+                  stickyHeader
+                  aria-label="sticky table"
+                >
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="center">
+                        <b>ID</b>
+                      </TableCell>
+                      <TableCell align="center">
+                        <b>Name</b>
+                      </TableCell>
+                      <TableCell align="center">
+                        <b>Batch</b>
+                      </TableCell>
+                      <TableCell align="center">
+                        <b>Remark</b>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {filteredStudents.map((student) => (
+                      <TableRow key={student.id}>
+                        <TableCell align="center">{student.id}</TableCell>
+                        <TableCell align="center">{student.name}</TableCell>
+                        <TableCell align="center">{student.batch}</TableCell>
+                        <TableCell align="center">
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            sx={{ me: 3, fontSize: { xs: "8px", md: "" } }}
+                            onClick={() =>
+                              handleAttendance(student.id, "Present")
+                            }
+                          >
+                            Present
+                          </Button>
+                          <Button
+                            variant="outlined"
+                            size="small"
+                            color="secondary"
+                            sx={{
+                              marginLeft: { xs: "0", md: "10px" },
+                              fontSize: { xs: "8px", md: "" },
+                            }}
+                            onClick={() =>
+                              handleAttendance(student.id, "Absent")
+                            }
+                          >
+                            Absent
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </Grid>
 
             <Grid item md={12} lg={12} xs={12}>
-            <Button variant="contained" fullWidth onClick={handleSubmit}>Submit Attendance</Button>
+              <Button variant="contained" fullWidth onClick={handleSubmit}>
+                Submit Attendance
+              </Button>
             </Grid>
           </Grid>
         </Box>

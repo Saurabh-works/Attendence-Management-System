@@ -70,7 +70,7 @@ function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Signin
           </Typography>
           <Box
             component="form"

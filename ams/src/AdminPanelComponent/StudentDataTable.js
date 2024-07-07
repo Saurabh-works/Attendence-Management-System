@@ -1,24 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import {
-  Box,
   Container,
-  CssBaseline,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Select,
+  TextField,
+  Box,
+  FormControl,
+  Button,
+  Snackbar,
+  Alert,
   Table,
-  TableBody,
-  TableCell,
+  TableContainer,
   TableHead,
   TableRow,
-  Typography,
+  TableCell,
+  TableBody,
+  InputLabel,
+  Select,
+  MenuItem,
+  Card,
+  CardContent,
+  Divider,
 } from "@mui/material";
-import { Label } from "@mui/icons-material";
+import { Avatar, CssBaseline, Typography } from "@mui/material";
+
+// npm install react-to-print
+
+import { useReactToPrint } from "react-to-print"; // To save table data in pdf form
 
 const StudentDataTable = () => {
+  //Shivanjali made this changes
+  const componentPDF = useRef();
+
   const [students, setStudents] = useState([]);
   const [selectedBatch, setSelectedBatch] = useState("");
 
@@ -43,45 +56,78 @@ const StudentDataTable = () => {
     ? students.filter((student) => student.batch === selectedBatch)
     : students;
 
+  // Shivanjali Made this
+
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: "StudentDataTable",
+    onAfterPrint: () => alert("Data saved in PDF"),
+  });
+
   return (
     <div>
-      <Container component="main" maxWidth="lg" sx={{padding:"25px"}}>
-        <CssBaseline />
-        <Typography variant="h5" align="center">Student Data</Typography>
+      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }}>
+        <div ref={componentPDF}>
+          <CssBaseline />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "white",
+              padding: "25px",
+              borderRadius: "15px",
+            }}
+          >
+            <Avatar
+              sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
+            ></Avatar>
+            <Typography variant="h6" textAlign={"center"}>
+              All Student Data
+            </Typography>
 
-        <Box component="div" sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item md={12}>
-              <Typography variant="body2">Select Batch</Typography>
-              <FormControl sx={{width:"300px"}}>
-                <Select value={selectedBatch} onChange={handleBatchChange}>
-                  <MenuItem value="" selected>All Batches</MenuItem>
-                  <MenuItem value="A">Batch A</MenuItem>
-                  <MenuItem value="B">Batch B</MenuItem>
-                </Select>
-              </FormControl>
-           
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Student ID</TableCell>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Batch</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {filteredStudents.map((student) => (
-                  <TableRow key={student.id}>
-                    <TableCell>{student.id}</TableCell>
-                    <TableCell>{student.name}</TableCell>
-                    <TableCell>{student.batch}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            </Grid>
-          </Grid>
-        </Box>
+            <Box
+              component="form"
+              sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="body2">Select Batch</Typography>
+                  <FormControl sx={{ width: "300px" }}>
+                    <Select value={selectedBatch} onChange={handleBatchChange}>
+                      <MenuItem value="" selected>
+                        All Batches
+                      </MenuItem>
+                      <MenuItem value="A">Batch A</MenuItem>
+                      <MenuItem value="B">Batch B</MenuItem>
+                    </Select>
+                  </FormControl>
+
+                  <Grid item xs={12}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>ID</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Batch</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {filteredStudents.map((student) => (
+                          <TableRow key={student.id}>
+                            <TableCell>{student.id}</TableCell>
+                            <TableCell>{student.name}</TableCell>
+                            <TableCell>{student.batch}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </div>
       </Container>
     </div>
   );

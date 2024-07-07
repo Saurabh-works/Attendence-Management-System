@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import {
   Avatar,
   Box,
@@ -11,7 +11,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { pink } from "@mui/material/colors";
 
 const UpdateNewStudentData = () => {
   const [studentId, setStudentId] = useState("");
@@ -47,25 +46,28 @@ const UpdateNewStudentData = () => {
 
   return (
     <>
-      <Container maxWidth="lg" >
+      <Container maxWidth="lg" sx={{ mt:3}}>
         <CssBaseline />
-        <Box
+        <Grid
+          md={12}
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-     
+            backgroundColor: "white",
+            padding:"25px",
+            borderRadius:"15px"
           }}
         >
-          <Avatar  sx={{ m: 1, bgcolor: "secondary", marginBottom:"15px"}}>
-            <PersonAddIcon sx={{color:pink}}/>
+          <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
+            <PersonAddIcon />
           </Avatar>
           <Typography variant="h6" textAlign={"center"}>
             Add New Student
           </Typography>
-          <Box component="form" sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item md={12}>
+          <Box component="form" sx={{ mt: 3, display:"flex", justifyContent:"center" }}>
+            <Grid container spacing={2} md={12}>
+              <Grid item xs={12} md={12}>
                 <TextField
                   required
                   fullWidth
@@ -77,7 +79,7 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
-              <Grid item md={12}>
+              <Grid item xs={12} md={12}>
                 <TextField
                   required
                   fullWidth
@@ -89,7 +91,7 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
-              <Grid item md={12}>
+              <Grid item xs={12} md={12}>
                 <TextField
                   required
                   fullWidth
@@ -101,14 +103,14 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
-              <Grid item md={12}>
+              <Grid item xs={12} md={12}>
                 <Button type="submit" fullWidth variant="contained">
                   Add Student
                 </Button>
               </Grid>
             </Grid>
           </Box>
-        </Box>
+        </Grid>
       </Container>
     </>
   );

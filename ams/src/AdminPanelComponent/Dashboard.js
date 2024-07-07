@@ -31,8 +31,10 @@ function Dashboard() {
             container
             mt={3}
             md={11.5}
+            sm={12}
             justifyContent={"space-between"}
-            columnGap={0.2}
+            // columnGap={0.2}
+            sx={{justifyContent:{xs:"space-around", md:"space-between"}, rowGap:1}}
           >
             
             <Grid
@@ -44,13 +46,14 @@ function Dashboard() {
                 boxShadow: "5px 5px 8px #cecece",
               }}
               md={2.7}
+              xs={5}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
               <Box component={"div"} textAlign={"center"}>
-                <Avatar sx={{ bgcolor: "secondary", margin: "auto" }}>
-                  <GroupsIcon />
+                <Avatar sx={{ bgcolor: "#aecaeb", margin: "auto" }}>
+                  <GroupsIcon sx={{color:"#153c9f"}}/>
                 </Avatar>
                 <Typography variant="h6" mt={1}>
                   200
@@ -68,13 +71,14 @@ function Dashboard() {
                 boxShadow: "5px 5px 8px #cecece",
               }}
               md={2.7}
+              xs={5}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
               <Box component={"div"} textAlign={"center"}>
-                <Avatar sx={{ margin: "auto", bgcolor: "secondary" }}>
-                  <LayersIcon />
+                <Avatar sx={{ margin: "auto", bgcolor: "#b2d4fa" }}>
+                  <LayersIcon sx={{color:"#085cbd"}}/>
                 </Avatar>
                 <Typography variant="h6" mt={1}>
                   5
@@ -92,13 +96,14 @@ function Dashboard() {
                 boxShadow: "5px 5px 8px #cecece",
               }}
               md={2.7}
+              xs={5}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
               <Box component={"div"} textAlign={"center"}>
-                <Avatar sx={{ margin: "auto", bgcolor: "secondary" }}>
-                  <ArticleIcon />
+                <Avatar sx={{ margin: "auto", bgcolor: "#efdfac" }}>
+                  <ArticleIcon sx={{color:"#ab8414"}}/>
                 </Avatar>
                 <Typography variant="h6" mt={1}>
                   7
@@ -116,13 +121,14 @@ function Dashboard() {
                 boxShadow: "5px 5px 8px #cecece",
               }}
               md={2.7}
+              xs={5}
               display="flex"
               justifyContent="center"
               alignItems="center"
             >
               <Box component={"div"} textAlign={"center"}>
-                <Avatar sx={{ margin: "auto", bgcolor: "secondary" }}>
-                  <BorderColorIcon />
+                <Avatar sx={{ margin: "auto", bgcolor: "#fcc5c0" }}>
+                  <BorderColorIcon sx={{color:"#a62736"}}/>
                 </Avatar>
                 <Typography variant="h6" mt={1}>
                   23
@@ -135,21 +141,21 @@ function Dashboard() {
           <Grid
             item
             mt={3}
-            md={7}
+            md={11.5}
             pb={3}
             sx={{
               backgroundColor: "white",
               borderRadius: "15px",
               boxShadow: "10px 10px 8px #cecece",
-              height: "420px",
+              maxHeight: "500px",
               overflow:"auto"
-            }}
+            }} 
           >
             <AttendanceComponent></AttendanceComponent>
           </Grid>
 
           {/* Update Student */}
-          <Grid
+          {/* <Grid
             item
             mt={3}
             md={4}
@@ -162,10 +168,10 @@ function Dashboard() {
             }}
           >
             <UpdateNewStudentData></UpdateNewStudentData>
-          </Grid>
+          </Grid> */}
 
           {/* Student Data */}
-         <Grid container md={11.5}>
+         {/* <Grid container md={11.5}>
          <Grid
             item
             mt={3}
@@ -181,17 +187,9 @@ function Dashboard() {
           >
             <StudentDataTable></StudentDataTable>
           </Grid>
-         </Grid>
+         </Grid> */}
         </Grid>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <hr /> <br /> <br />
-      <ShowStudentAttendance></ShowStudentAttendance> <hr /> <br /> <br />
-      <ShowBatchAttendance></ShowBatchAttendance> <hr /> <br /> <br />
-      <StudentReport></StudentReport> <hr /> <br /> <br />
+      
     </div>
   );
 }

@@ -1,4 +1,7 @@
 import React from 'react'
+
+
+
 function StudentPanelIndex() {
   return (
     <>
@@ -8,6 +11,9 @@ function StudentPanelIndex() {
         <li>Dashboard</li>
         <li>Attendance</li>
         <li>Report</li>
+
+
+        
 
       </nav>
       </div>
