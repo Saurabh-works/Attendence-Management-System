@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { useReactToPrint } from "react-to-print"; 
+import BatchReport from '../Report/BatchReport';
+import { Link, Route} from "react-router-dom";
 
 const ShowBatchAttendance = () => {
   const componentPDF = useRef();
@@ -100,6 +102,11 @@ const ShowBatchAttendance = () => {
  <div>
          <button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
       </div> 
+
+      <div>
+        {/* <Link to="/BatchReport">Batch Report</Link> */}
+        <BatchReport>BatchReport</BatchReport>
+      </div>
       </>
 
   );
