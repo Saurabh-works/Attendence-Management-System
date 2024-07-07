@@ -27,11 +27,7 @@ function LoginIndex() {
         <Route path="/ShowStudentAttendance" element={<ShowStudentAttendance/>}/>
         <Route path="/ShowBatchAttendance" element={<ShowBatchAttendance/>}/>
         <Route path="/StudentReport" element={<StudentReport/>}/>
-<<<<<<< HEAD
         <Route path="/" element={<Login />} />
-=======
-        {/* <Route path="/BatchReport" element={<BatchReport/>}/> */}
->>>>>>> 0e1884c82dccb766d469e222cd98fe4885a87e16
       </Routes>
     </div>
   </BrowserRouter>

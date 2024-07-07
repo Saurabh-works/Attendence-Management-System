@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import { useReactToPrint } from "react-to-print";
@@ -23,13 +22,6 @@ import {
 } from "@mui/material";
 import { Avatar, CssBaseline, Typography } from "@mui/material";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-=======
-import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import { useReactToPrint } from "react-to-print"; 
-import BatchReport from '../Report/BatchReport';
-import { Link, Route} from "react-router-dom";
->>>>>>> 0e1884c82dccb766d469e222cd98fe4885a87e16
 
 const ShowBatchAttendance = () => {
   const componentPDF = useRef();
@@ -121,7 +113,6 @@ const ShowBatchAttendance = () => {
               Batch Attendance
             </Typography>
 
-<<<<<<< HEAD
             <Box
               onSubmit={handelSubmit}
               component="form"
@@ -142,17 +133,6 @@ const ShowBatchAttendance = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-=======
- <div>
-         <button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
-      </div> 
-
-      <div>
-        {/* <Link to="/BatchReport">Batch Report</Link> */}
-        <BatchReport>BatchReport</BatchReport>
-      </div>
-      </>
->>>>>>> 0e1884c82dccb766d469e222cd98fe4885a87e16
 
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
