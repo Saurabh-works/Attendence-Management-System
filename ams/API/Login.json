@@ -194,15 +194,31 @@
           "status": "Present"
         },
         {
-          "studentId": "2",
-          "status": "Present"
+          "studentId": "4",
+          "status": "Absent"
         },
         {
           "studentId": "5",
           "status": "Absent"
         },
         {
+          "studentId": "6",
+          "status": "Absent"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
           "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
           "status": "Present"
         }
       ],
@@ -254,39 +270,15 @@
       ],
       "B": [
         {
-          "studentId": "1",
+          "studentId": "10",
           "status": "Present"
         },
         {
-          "studentId": "2",
-          "status": "Present"
-        },
-        {
-          "studentId": "3",
+          "studentId": "12",
           "status": "Absent"
         },
         {
-          "studentId": "4",
-          "status": "Absent"
-        },
-        {
-          "studentId": "5",
-          "status": "Absent"
-        },
-        {
-          "studentId": "6",
-          "status": "Absent"
-        },
-        {
-          "studentId": "7",
-          "status": "Absent"
-        },
-        {
-          "studentId": "8",
-          "status": "Absent"
-        },
-        {
-          "studentId": "9",
+          "studentId": "13",
           "status": "Absent"
         }
       ]
