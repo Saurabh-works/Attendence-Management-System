@@ -13,7 +13,13 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
+import { FormControl, Select, MenuItem, InputLabel, Icon } from "@mui/material";
+
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 function Login() {
   const [userid, setUserid] = useState("");
@@ -44,9 +50,10 @@ function Login() {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
-
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -55,15 +62,15 @@ function Login() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding:"25px",
-            boxShadow: "10px 10px 10px #cecece"
+            padding: "25px",
+            boxShadow: "0px 0px 10px #cecece", 
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Signin
           </Typography>
           <Box
             component="form"
@@ -90,11 +97,27 @@ function Login() {
               fullWidth
               name="password"
               label="Password"
-              type="password"
               id="password"
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <VisibilityOffIcon color="primary" />
+                      ) : (
+                        <VisibilityIcon color="primary" />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
             <FormControl margin="normal" fullWidth>
               <InputLabel>Select Roll</InputLabel>
@@ -130,7 +153,9 @@ function Login() {
                 {/* <Link href="#" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link> */}
-                <Link variant="body2" color="primary">Don't have an account? <NavLink to="/signup">Sign Up</NavLink></Link>
+                <Link variant="body2" color="primary">
+                  Don't have an account? <NavLink to="/signup">Sign Up</NavLink>
+                </Link>
               </Grid>
             </Grid>
           </Box>

@@ -10,6 +10,7 @@ import StudentDataTable from '../AdminPanelComponent/StudentDataTable';
 import ShowStudentAttendance from '../AdminPanelComponent/ShowStudentAttendance';
 import ShowBatchAttendance from '../AdminPanelComponent/ShowBatchAttendance';
 import StudentReport from '../AdminPanelComponent/StudentReport';
+import BatchReport from '../Report/BatchReport';
 
 function LoginIndex() {
   return (
@@ -20,13 +21,13 @@ function LoginIndex() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/admin" element={<AdminPanelIndex />} />
         <Route path="/student" element={<StudentPanelIndex />} />
-        <Route path="/" element={<Login />} />
         <Route path="/AttendanceComponent" element={<AttendanceComponent/>}/>
         <Route path="/UpdateNewStudentData" element={<UpdateNewStudentData/>}/>
         <Route path="/StudentDataTable" element={<StudentDataTable/>}/>
         <Route path="/ShowStudentAttendance" element={<ShowStudentAttendance/>}/>
         <Route path="/ShowBatchAttendance" element={<ShowBatchAttendance/>}/>
         <Route path="/StudentReport" element={<StudentReport/>}/>
+        <Route path="/" element={<Login />} />
       </Routes>
     </div>
   </BrowserRouter>
