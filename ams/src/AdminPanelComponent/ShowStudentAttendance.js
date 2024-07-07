@@ -1,86 +1,231 @@
-import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import { useReactToPrint } from "react-to-print"; 
-
+import React, { useState, useRef } from "react";
+import axios from "axios";
+import { useReactToPrint } from "react-to-print";
+import {
+  Container,
+  Grid,
+  TextField,
+  Box,
+  FormControl,
+  Button,
+  Snackbar,
+  Alert,
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@mui/material";
+import { Avatar, CssBaseline, Typography } from "@mui/material";
+import SchoolIcon from '@mui/icons-material/School';
 const ShowStudentAttendance = () => {
   const componentPDF = useRef();
 
-  const [studentId, setStudentId] = useState('');
-  const [date, setDate] = useState('');
+  const [studentId, setStudentId] = useState("");
+  const [date, setDate] = useState("");
   const [attendanceDetails, setAttendanceDetails] = useState(null);
-  const [error, setError] = useState(''); 
+  const [error, setError] = useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const handelSubmit = (e) => {
+    e.preventDefault();
+  };
 
   const handleFetchAttendance = async () => {
+    setOpen(true);
+
     if (!studentId || !date) {
-      setError('Please enter both student ID and date.');
+      setError("Please enter both student ID and date.");
       return;
     }
 
     try {
-      const studentsResponse = await axios.get(`http://localhost:5000/students/${studentId}`);
+      const studentsResponse = await axios.get(
+        `http://localhost:5000/students/${studentId}`
+      );
       const student = studentsResponse.data;
 
-      const attendanceResponse = await axios.get(`http://localhost:5000/attendance`);
+      const attendanceResponse = await axios.get(
+        `http://localhost:5000/attendance`
+      );
       const attendanceData = attendanceResponse.data;
 
       if (attendanceData[date] && attendanceData[date][student.batch]) {
-        const attendanceRecord = attendanceData[date][student.batch].find(att => att.studentId === studentId);
+        const attendanceRecord = attendanceData[date][student.batch].find(
+          (att) => att.studentId === studentId
+        );
 
         setAttendanceDetails({
           ...student,
-          status: attendanceRecord ? attendanceRecord.status : 'Absent',
+          status: attendanceRecord ? attendanceRecord.status : "Absent",
         });
-        setError('');
+        setError("");
       } else {
-        setError('No attendance record found for the given date and student batch.');
+        setError(
+          "No attendance record found for the given date and student batch."
+        );
         setAttendanceDetails(null);
       }
     } catch (error) {
-      console.error('Error fetching attendance details:', error);
-      setError('Error fetching attendance details. Please try again.');
+      console.error("Error fetching attendance details:", error);
+      setError("Error fetching attendance details. Please try again.");
       setAttendanceDetails(null);
     }
   };
 
   const generatePDF = useReactToPrint({
     content: () => componentPDF.current,
-    documentTitle:"StudentDataTable",
-    onAfterPrint: ()=> alert("Data saved in PDF")
-
+    documentTitle: "StudentDataTable",
+    onAfterPrint: () => alert("Data saved in PDF"),
   });
 
   return (
     <>
-    
-    <div>
-      <h2>Show Student Attendance</h2>
-      <div ref={componentPDF} >
-      <div>
-        <label>Student ID: </label>
-        <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
-      </div>
-      <div>
-        <label>Date: </label>
-        <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
-      </div>
-      <button onClick={handleFetchAttendance}>Fetch Attendance</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {attendanceDetails && (
-        <div>
-          <h3>Attendance Details</h3>
-          <p>Student ID: {attendanceDetails.id}</p>
-          <p>Name: {attendanceDetails.name}</p>
-          <p>Batch: {attendanceDetails.batch}</p>
-          <p>Attendance Status: {attendanceDetails.status}</p>
-        </div>
-      )}
-    </div>
-    </div>
+      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }} >
+      <div ref={componentPDF}>
+        <CssBaseline />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            backgroundColor: "white",
+            padding: "25px",
+            borderRadius: "15px",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
+            <SchoolIcon />
+          </Avatar>
+          <Typography variant="h6" textAlign={"center"}>Student Attendance
+          </Typography>
+          <Box
+            onSubmit={handelSubmit}
+            component="form"
+            sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+          >
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  required
+                  fullWidth
+                  label="User Id"
+                  name="id"
+                  type="number"
+                  value={studentId}
+                  onChange={(e) => setStudentId(e.target.value)}
+                />
+              </Grid>
 
-<div>
-<button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
-</div>
-</>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <TextField
+                    type="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                  />
+                </FormControl>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  onClick={handleFetchAttendance}
+                >
+                  Fetch Attendance
+                </Button>
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <Button variant="contained" fullWidth onClick={generatePDF}>
+                  Save as PDF
+                </Button>
+              </Grid>
+              {error && (
+                <Snackbar
+                  open={open}
+                  autoHideDuration={5000}
+                  onClose={handleClose}
+                >
+                  <Alert severity="error">{error}</Alert>
+                </Snackbar>
+              )}
+
+              {attendanceDetails && (
+                <Grid item xs={12}>
+                  <Typography align="center" variant="h6">
+                    Attendance Details
+                  </Typography>
+                  <TableContainer
+                    component={"paper"}
+                    sx={{ textAlign: "center" }}
+                  >
+                    <Table
+                      sx={{ textAlign: "center" }}
+                      stickyHeader
+                      aria-label="sticky table"
+                    >
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center">
+                            <b>ID</b>
+                          </TableCell>
+                          <TableCell align="center">
+                            <b>Name</b>
+                          </TableCell>
+                          <TableCell align="center">
+                            <b>Batch</b>
+                          </TableCell>
+                          <TableCell align="center">
+                            <b>Status</b>
+                          </TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        <TableRow>
+                          <TableCell align="center">
+                            <Typography variant="body2">
+                              {attendanceDetails.id}
+                            </Typography>
+                          </TableCell>
+                          <TableCell align="center">
+                            <Typography variant="body2">
+                              {attendanceDetails.name}
+                            </Typography>
+                          </TableCell>
+                          <TableCell align="center">
+                            <Typography variant="body2">
+                              {attendanceDetails.batch}
+                            </Typography>
+                          </TableCell>
+                          <TableCell align="center">
+                            <Typography variant="body2">
+                              {attendanceDetails.status}
+                            </Typography>
+                          </TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                </Grid>
+              )}
+                            
+            </Grid>
+          </Box>
+        </Box>
+        </div>
+      </Container>
+    </>
   );
 };
 

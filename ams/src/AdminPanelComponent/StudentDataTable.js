@@ -1,26 +1,47 @@
+import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
+import {
+  Container,
+  Grid,
+  TextField,
+  Box,
+  FormControl,
+  Button,
+  Snackbar,
+  Alert,
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  InputLabel,
+  Select,
+  MenuItem,
+  Card,
+  CardContent,
+  Divider,
+} from "@mui/material";
+import { Avatar, CssBaseline, Typography } from "@mui/material";
 
-import React, { useState, useEffect,  useRef} from 'react';
-import axios from 'axios';
+// npm install react-to-print
 
-// npm install react-to-print 
-
-import { useReactToPrint } from "react-to-print";  // To save table data in pdf form
+import { useReactToPrint } from "react-to-print"; // To save table data in pdf form
 
 const StudentDataTable = () => {
-
-//Shivanjali made this changes
-const componentPDF = useRef();
+  //Shivanjali made this changes
+  const componentPDF = useRef();
 
   const [students, setStudents] = useState([]);
-  const [selectedBatch, setSelectedBatch] = useState('');
+  const [selectedBatch, setSelectedBatch] = useState("");
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/students');
+        const response = await axios.get("http://localhost:5000/students");
         setStudents(response.data);
       } catch (error) {
-        console.error('Error fetching students:', error);
+        console.error("Error fetching students:", error);
       }
     };
 
@@ -32,67 +53,82 @@ const componentPDF = useRef();
   };
 
   const filteredStudents = selectedBatch
-    ? students.filter(student => student.batch === selectedBatch)
+    ? students.filter((student) => student.batch === selectedBatch)
     : students;
 
+  // Shivanjali Made this
 
-    // Shivanjali Made this
-
-    const generatePDF = useReactToPrint({
-      content: () => componentPDF.current,
-      documentTitle:"StudentDataTable",
-      onAfterPrint: ()=> alert("Data saved in PDF")
-
-    });
-
+  const generatePDF = useReactToPrint({
+    content: () => componentPDF.current,
+    documentTitle: "StudentDataTable",
+    onAfterPrint: () => alert("Data saved in PDF"),
+  });
 
   return (
     <div>
-      <h2 className='font-bold'>Student Data Table</h2>
-      <div>
-        <label>Select Batch: </label>
-        <select value={selectedBatch} onChange={handleBatchChange}>
-          <option value="">All Batches</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          
-        </select>
-      </div>
+      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }}>
+        <div ref={componentPDF}>
+          <CssBaseline />
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "white",
+              padding: "25px",
+              borderRadius: "15px",
+            }}
+          >
+            <Avatar
+              sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
+            ></Avatar>
+            <Typography variant="h6" textAlign={"center"}>
+              All Student Data
+            </Typography>
 
-      {/* shivanjali made this */}
-      <div ref={componentPDF} >
+            <Box
+              component="form"
+              sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+            >
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="body2">Select Batch</Typography>
+                  <FormControl sx={{ width: "300px" }}>
+                    <Select value={selectedBatch} onChange={handleBatchChange}>
+                      <MenuItem value="" selected>
+                        All Batches
+                      </MenuItem>
+                      <MenuItem value="A">Batch A</MenuItem>
+                      <MenuItem value="B">Batch B</MenuItem>
+                    </Select>
+                  </FormControl>
 
-
-      <table>
-        <thead>
-          <tr>
-            <th>Student ID</th>
-            <th>Name</th>
-            <th>Batch</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredStudents.map(student => (
-            <tr key={student.id}>
-              <td>{student.id}</td>
-              <td>{student.name}</td>
-              <td>{student.batch}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-
-      </div>
-
-
-      {/* Shivanjali made this changes */}
-      <div>
-         <button className="btn btn-success" onClick={ generatePDF }>Save as PDF</button>
-      </div>
-
-
-
+                  <Grid item xs={12}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>ID</TableCell>
+                          <TableCell>Name</TableCell>
+                          <TableCell>Batch</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {filteredStudents.map((student) => (
+                          <TableRow key={student.id}>
+                            <TableCell>{student.id}</TableCell>
+                            <TableCell>{student.name}</TableCell>
+                            <TableCell>{student.batch}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Box>
+          </Box>
+        </div>
+      </Container>
     </div>
   );
 };
