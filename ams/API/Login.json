@@ -35,6 +35,12 @@
       "userid": "Saurabh",
       "password": "12345",
       "role": "student"
+    },
+    {
+      "id": "30ce",
+      "userid": "tilakchanddhake6143@gmail.com",
+      "password": "6143",
+      "role": "admin"
     }
   ],
   "students": [
@@ -464,11 +470,19 @@
         }
       ]
     },
+<<<<<<< HEAD
     "2024-06-01": {
       "A": [
         {
           "studentId": "1",
           "status": "Present"
+=======
+    "2024-07-03": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
         },
         {
           "studentId": "2",
@@ -479,6 +493,7 @@
           "status": "Present"
         },
         {
+<<<<<<< HEAD
           "studentId": "5",
           "status": "Present"
         },
@@ -573,6 +588,14 @@
         {
           "studentId": "5",
           "status": "Present"
+=======
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
         },
         {
           "studentId": "6",
@@ -584,11 +607,19 @@
         },
         {
           "studentId": "8",
+<<<<<<< HEAD
           "status": "Absent"
         },
         {
           "studentId": "9",
           "status": "Present"
+=======
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
         },
         {
           "studentId": "11",
@@ -597,6 +628,7 @@
         {
           "studentId": "12",
           "status": "Present"
+<<<<<<< HEAD
         }
       ]
     },
@@ -648,6 +680,11 @@
         },
         {
           "studentId": "12",
+=======
+        },
+        {
+          "studentId": "13",
+>>>>>>> c4e63c752a9721bf22e9f42287f684c6e30ff63d
           "status": "Absent"
         }
       ]
