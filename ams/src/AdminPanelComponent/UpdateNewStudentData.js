@@ -32,7 +32,11 @@ const UpdateNewStudentData = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/students", newStudent);
+      await axios.post("http://localhost:5000/students", newStudent, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
 
       alert("Student added successfully!");
       setStudentId("");
@@ -45,74 +49,72 @@ const UpdateNewStudentData = () => {
   };
 
   return (
-    <>
-      <Container maxWidth="lg" sx={{ mt:3}}>
-        <CssBaseline />
-        <Grid
-          md={12}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "white",
-            padding:"25px",
-            borderRadius:"15px"
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
-            <PersonAddIcon />
-          </Avatar>
-          <Typography variant="h6" textAlign={"center"}>
-            Add New Student
-          </Typography>
-          <Box component="form" sx={{ mt: 3, display:"flex", justifyContent:"center" }}>
-            <Grid container spacing={2} md={12}>
-              <Grid item xs={12} md={12}>
-                <TextField
-                  required
-                  fullWidth
-                  label="User Id"
-                  name="id"
-                  type="number"
-                  value={studentId}
-                  onChange={(e) => setStudentId(e.target.value)}
-                />
-              </Grid>
-
-              <Grid item xs={12} md={12}>
-                <TextField
-                  required
-                  fullWidth
-                  label="Name"
-                  name="name"
-                  type="text"
-                  value={studentName}
-                  onChange={(e) => setStudentName(e.target.value)}
-                />
-              </Grid>
-
-              <Grid item xs={12} md={12}>
-                <TextField
-                  required
-                  fullWidth
-                  label="Batch"
-                  name="batch"
-                  type="text"
-                  value={studentBatch}
-                  onChange={(e) => setStudentBatch(e.target.value)}
-                />
-              </Grid>
-
-              <Grid item xs={12} md={12}>
-                <Button type="submit" fullWidth variant="contained">
-                  Add Student
-                </Button>
-              </Grid>
+    <Container maxWidth="lg" sx={{ mt: 3 }}>
+      <CssBaseline />
+      <Grid
+        md={12}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          backgroundColor: "white",
+          padding: "25px",
+          borderRadius: "15px",
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
+          <PersonAddIcon />
+        </Avatar>
+        <Typography variant="h6" textAlign={"center"}>
+          Add New Student
+        </Typography>
+        <Box component="form" sx={{ mt: 3, display: "flex", justifyContent: "center" }} onSubmit={handleSubmit}>
+          <Grid container spacing={2} md={12}>
+            <Grid item xs={12} md={12}>
+              <TextField
+                required
+                fullWidth
+                label="User Id"
+                name="id"
+                type="number"
+                value={studentId}
+                onChange={(e) => setStudentId(e.target.value)}
+              />
             </Grid>
-          </Box>
-        </Grid>
-      </Container>
-    </>
+
+            <Grid item xs={12} md={12}>
+              <TextField
+                required
+                fullWidth
+                label="Name"
+                name="name"
+                type="text"
+                value={studentName}
+                onChange={(e) => setStudentName(e.target.value)}
+              />
+            </Grid>
+
+            <Grid item xs={12} md={12}>
+              <TextField
+                required
+                fullWidth
+                label="Batch"
+                name="batch"
+                type="text"
+                value={studentBatch}
+                onChange={(e) => setStudentBatch(e.target.value)}
+              />
+            </Grid>
+
+            <Grid item xs={12} md={12}>
+              <Button type="submit" fullWidth variant="contained">
+                Add Student
+              </Button>
+            </Grid>
+          </Grid>
+        </Box>
+      </Grid>
+    </Container>
   );
 };
 
