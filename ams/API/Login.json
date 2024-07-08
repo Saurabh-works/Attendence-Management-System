@@ -120,7 +120,7 @@
       "batch": "B"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Anjali",
       "batch": "A"
     }
@@ -540,19 +540,11 @@
         }
       ]
     },
-<<<<<<< HEAD
-    "2024-07-03": {
-      "A": [
-        {
-          "studentId": "1",
-          "status": "Absent"
-=======
     "2024-06-01": {
       "A": [
         {
           "studentId": "1",
           "status": "Present"
->>>>>>> 641fa23dd1474273b740b22c65321e44c6daab3f
         },
         {
           "studentId": "2",
@@ -563,14 +555,6 @@
           "status": "Present"
         },
         {
-<<<<<<< HEAD
-          "studentId": "4",
-          "status": "Present"
-        },
-        {
-          "studentId": "5",
-          "status": "Absent"
-=======
           "studentId": "5",
           "status": "Present"
         },
@@ -665,7 +649,6 @@
         {
           "studentId": "5",
           "status": "Present"
->>>>>>> 641fa23dd1474273b740b22c65321e44c6daab3f
         },
         {
           "studentId": "6",
@@ -677,19 +660,11 @@
         },
         {
           "studentId": "8",
-<<<<<<< HEAD
-          "status": "Present"
-        },
-        {
-          "studentId": "9",
-          "status": "Absent"
-=======
           "status": "Absent"
         },
         {
           "studentId": "9",
           "status": "Present"
->>>>>>> 641fa23dd1474273b740b22c65321e44c6daab3f
         },
         {
           "studentId": "11",
@@ -698,11 +673,6 @@
         {
           "studentId": "12",
           "status": "Present"
-<<<<<<< HEAD
-        },
-        {
-          "studentId": "13",
-=======
         }
       ]
     },
@@ -780,8 +750,15 @@
         },
         {
           "studentId": "2",
->>>>>>> 641fa23dd1474273b740b22c65321e44c6daab3f
           "status": "Absent"
+        }
+      ]
+    },
+    "2024-07-07": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
         }
       ]
     }
