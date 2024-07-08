@@ -81,7 +81,11 @@ const AttendanceComponent = () => {
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Box component="div" sx={{ mt: 3 }}>
+
+          {/* main form */}
           <Grid container spacing={2}>
+
+            {/* select batch */}
             <Grid item md={6} lg={6} xs={12}>
               <FormControl fullWidth>
                 <InputLabel>Select Batch</InputLabel>
@@ -97,6 +101,7 @@ const AttendanceComponent = () => {
               </FormControl>
             </Grid>
 
+            {/* select date */}
             <Grid item md={6} lg={6} xs={12}>
               <FormControl fullWidth>
                 <TextField
@@ -107,6 +112,7 @@ const AttendanceComponent = () => {
               </FormControl>
             </Grid>
 
+            {/* main table */}
             <Grid item md={12} lg={12} xs={12}>
               <TableContainer component={Paper} sx={{ textAlign: "center" }}>
                 <Table sx={{ textAlign: "center" }} stickyHeader aria-label="sticky table">
@@ -158,6 +164,7 @@ const AttendanceComponent = () => {
               </TableContainer>
             </Grid>
 
+            {/* submit attendence button */}
             <Grid item md={12} lg={12} xs={12}>
               <Button variant="contained" fullWidth onClick={handleSubmit}>
                 Submit Attendance

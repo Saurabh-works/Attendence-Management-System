@@ -52,25 +52,31 @@ const UpdateNewStudentData = () => {
     <Container maxWidth="lg" sx={{ mt: 3 }}>
       <CssBaseline />
       <Grid
-        md={12}
+        container
+        spacing={2}
+        direction="column"
+        alignItems="center"
+        component={Box}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
           backgroundColor: "white",
           padding: "25px",
           borderRadius: "15px",
+          boxShadow: "5px 5px 8px #cecece",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
+        <Avatar sx={{ bgcolor: "primary.main", marginBottom: "15px" }}>
           <PersonAddIcon />
         </Avatar>
-        <Typography variant="h6" textAlign={"center"}>
+        <Typography variant="h6" textAlign="center">
           Add New Student
         </Typography>
-        <Box component="form" sx={{ mt: 3, display: "flex", justifyContent: "center" }} onSubmit={handleSubmit}>
-          <Grid container spacing={2} md={12}>
-            <Grid item xs={12} md={12}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{ mt: 3, width: "100%" }}
+        >
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -82,7 +88,7 @@ const UpdateNewStudentData = () => {
               />
             </Grid>
 
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -94,7 +100,7 @@ const UpdateNewStudentData = () => {
               />
             </Grid>
 
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -106,7 +112,7 @@ const UpdateNewStudentData = () => {
               />
             </Grid>
 
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12}>
               <Button type="submit" fullWidth variant="contained">
                 Add Student
               </Button>
