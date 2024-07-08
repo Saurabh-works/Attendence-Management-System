@@ -66,10 +66,11 @@ const StudentDataTable = () => {
 
   return (
     <div>
-      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }}>
+      <Container component={"div"} maxWidth="lg" sx={{ mt: 3,  }}>
         <div ref={componentPDF}>
           <CssBaseline />
-          <Box
+          <Grid
+            md={12}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -77,6 +78,9 @@ const StudentDataTable = () => {
               backgroundColor: "white",
               padding: "25px",
               borderRadius: "15px",
+              boxShadow: "5px 5px 8px #cecece",
+              maxHeight:"500px",
+              overflowY:"scroll"
             }}
           >
             <Avatar
@@ -107,17 +111,25 @@ const StudentDataTable = () => {
                     <Table>
                       <TableHead>
                         <TableRow>
-                          <TableCell>ID</TableCell>
-                          <TableCell>Name</TableCell>
-                          <TableCell>Batch</TableCell>
+                          <TableCell align="center">
+                            <b>ID</b>
+                          </TableCell>
+                          <TableCell align="center">
+                            <b>Name</b>
+                          </TableCell>
+                          <TableCell align="center">
+                            <b>Batch</b>
+                          </TableCell>
                         </TableRow>
                       </TableHead>
                       <TableBody>
                         {filteredStudents.map((student) => (
                           <TableRow key={student.id}>
-                            <TableCell>{student.id}</TableCell>
-                            <TableCell>{student.name}</TableCell>
-                            <TableCell>{student.batch}</TableCell>
+                            <TableCell align="center">{student.id}</TableCell>
+                            <TableCell align="center">{student.name}</TableCell>
+                            <TableCell align="center">
+                              {student.batch}
+                            </TableCell>
                           </TableRow>
                         ))}
                       </TableBody>
@@ -126,7 +138,7 @@ const StudentDataTable = () => {
                 </Grid>
               </Grid>
             </Box>
-          </Box>
+          </Grid>
         </div>
       </Container>
     </div>

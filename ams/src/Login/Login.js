@@ -56,6 +56,8 @@ function Login() {
     <>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+
+        {/* main container */}
         <Box
           sx={{
             marginTop: 6,
@@ -66,31 +68,36 @@ function Login() {
             boxShadow: "0px 0px 10px #cecece", 
           }}
         >
+          {/* icon */}
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
+
+          {/* Title */}
           <Typography component="h1" variant="h5">
             Signin
           </Typography>
+
+          {/* main form */}
           <Box
             component="form"
             onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
           >
+            {/* user id */}
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
-              name="email"
-              autoComplete="email"
               autoFocus
               type="text"
               label="UserID"
               value={userid}
               onChange={(e) => setUserid(e.target.value)}
             />
+
+            {/* password */}
             <TextField
               margin="normal"
               required
@@ -109,6 +116,8 @@ function Login() {
                       onClick={() => setShowPassword(!showPassword)}
                       edge="end"
                     >
+
+                      {/* show password */}
                       {showPassword ? (
                         <VisibilityOffIcon color="primary" />
                       ) : (
@@ -119,6 +128,8 @@ function Login() {
                 ),
               }}
             />
+
+            {/* select roll */}
             <FormControl margin="normal" fullWidth>
               <InputLabel>Select Roll</InputLabel>
               <Select
@@ -135,6 +146,8 @@ function Login() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
+
+            {/* sig in button */}
             <Button
               type="submit"
               fullWidth
@@ -144,11 +157,15 @@ function Login() {
               Sign In
             </Button>
             <Grid container>
+
+              {/* forgot password */}
               <Grid item xs>
                 <Link href="#" variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
+
+              {/* sign up */}
               <Grid item>
                 {/* <Link href="#" variant="body2">
                   {"Don't have an account? Sign Up"}

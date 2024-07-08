@@ -44,7 +44,7 @@ const ShowBatchAttendance = () => {
   };
 
   const handleFetchAttendance = async () => {
-    setOpen(true)
+    setOpen(true);
     if (!batch || !date) {
       setError("Please select both batch and date.");
       return;
@@ -102,23 +102,31 @@ const ShowBatchAttendance = () => {
               backgroundColor: "white",
               padding: "25px",
               borderRadius: "15px",
-            }} 
+              boxShadow: "5px 5px 8px #cecece",
+              maxHeight: "500px",
+              overflow: "auto",
+            }}
           >
+            {/* Icon */}
             <Avatar
               sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
             >
               <AssessmentIcon />
             </Avatar>
+
+            {/* Title */}
             <Typography variant="h6" textAlign={"center"}>
               Batch Attendance
             </Typography>
 
+            {/* main form */}
             <Box
               onSubmit={handelSubmit}
               component="form"
               sx={{ mt: 3, display: "flex", justifyContent: "center" }}
             >
               <Grid container spacing={2}>
+                {/* Select Batch */}
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
                     <InputLabel>Select Batch</InputLabel>
@@ -134,6 +142,7 @@ const ShowBatchAttendance = () => {
                   </FormControl>
                 </Grid>
 
+                {/* Select date */}
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
                     <TextField
@@ -144,8 +153,10 @@ const ShowBatchAttendance = () => {
                   </FormControl>
                 </Grid>
 
+                {/* Fetch Attendance Button */}
                 <Grid item xs={12} md={6}>
                   <Button
+                    size="small"
                     variant="contained"
                     fullWidth
                     onClick={handleFetchAttendance}
@@ -154,12 +165,19 @@ const ShowBatchAttendance = () => {
                   </Button>
                 </Grid>
 
+                {/* Save as pdf Button */}
                 <Grid item xs={12} md={6}>
-                  <Button variant="contained" fullWidth onClick={generatePDF}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    fullWidth
+                    onClick={generatePDF}
+                  >
                     Save as PDF
                   </Button>
                 </Grid>
 
+                {/* Error Messages */}
                 {error && (
                   <Snackbar
                     open={open}
@@ -170,6 +188,7 @@ const ShowBatchAttendance = () => {
                   </Snackbar>
                 )}
 
+                {/* Main table */}
                 {attendanceDetails.length > 0 && (
                   <Grid item xs={12}>
                     <Typography align="center" variant="h6">
@@ -201,36 +220,35 @@ const ShowBatchAttendance = () => {
                           </TableRow>
                         </TableHead>
                         {attendanceDetails.map((student) => (
-                        <TableBody>
-                          <TableRow>
-                            <TableCell align="center">
-                              <Typography variant="body2">
-                              {student.id}
-                              </Typography>
-                            </TableCell>
-                            <TableCell align="center">
-                              <Typography variant="body2">
-                              {student.name}
-                              </Typography>
-                            </TableCell>
-                            <TableCell align="center">
-                              <Typography variant="body2">
-                                {student.batch}
-                              </Typography>
-                            </TableCell>
-                            <TableCell align="center">
-                              <Typography variant="body2">
-                                {student.status}
-                              </Typography>
-                            </TableCell>
-                          </TableRow>
-                        </TableBody>
-                         ))}
+                          <TableBody>
+                            <TableRow>
+                              <TableCell align="center">
+                                <Typography variant="body2">
+                                  {student.id}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="center">
+                                <Typography variant="body2">
+                                  {student.name}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="center">
+                                <Typography variant="body2">
+                                  {student.batch}
+                                </Typography>
+                              </TableCell>
+                              <TableCell align="center">
+                                <Typography variant="body2">
+                                  {student.status}
+                                </Typography>
+                              </TableCell>
+                            </TableRow>
+                          </TableBody>
+                        ))}
                       </Table>
                     </TableContainer>
                   </Grid>
                 )}
-                
               </Grid>
             </Box>
           </Box>
