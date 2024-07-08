@@ -18,7 +18,7 @@ import {
   TableBody,
 } from "@mui/material";
 import { Avatar, CssBaseline, Typography } from "@mui/material";
-import SchoolIcon from '@mui/icons-material/School';
+import SchoolIcon from "@mui/icons-material/School";
 const ShowStudentAttendance = () => {
   const componentPDF = useRef();
 
@@ -90,140 +90,160 @@ const ShowStudentAttendance = () => {
 
   return (
     <>
-      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }} >
-      <div ref={componentPDF}>
-        <CssBaseline />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            backgroundColor: "white",
-            padding: "25px",
-            borderRadius: "15px",
-            boxShadow: "5px 5px 8px #cecece",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
-            <SchoolIcon />
-          </Avatar>
-          <Typography variant="h6" textAlign={"center"}>Student Attendance
-          </Typography>
+      <Container component={"div"} maxWidth="lg" sx={{ mt: 3 }}>
+        <div ref={componentPDF}>
+          <CssBaseline />
           <Box
-            onSubmit={handelSubmit}
-            component="form"
-            sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              backgroundColor: "white",
+              padding: "25px",
+              borderRadius: "15px",
+              boxShadow: "5px 5px 8px #cecece",
+            }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
-                <TextField
-                  required
-                  fullWidth
-                  label="User Id"
-                  name="id"
-                  type="number"
-                  value={studentId}
-                  onChange={(e) => setStudentId(e.target.value)}
-                />
-              </Grid>
+            {/* icon */}
+            <Avatar
+              sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
+            >
+              <SchoolIcon />
+            </Avatar>
 
-              <Grid item xs={12} md={6}>
-                <FormControl fullWidth>
+            {/* title */}
+            <Typography variant="h6" textAlign={"center"}>
+              Student Attendance
+            </Typography>
+
+            {/* main form */}
+            <Box
+              onSubmit={handelSubmit}
+              component="form"
+              sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+            >
+              <Grid container spacing={2}>
+                {/* user id */}
+                <Grid item xs={12} md={6}>
                   <TextField
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
+                    required
+                    fullWidth
+                    label="User Id"
+                    name="id"
+                    type="number"
+                    value={studentId}
+                    onChange={(e) => setStudentId(e.target.value)}
                   />
-                </FormControl>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  onClick={handleFetchAttendance}
-                >
-                  Fetch Attendance
-                </Button>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <Button variant="contained" fullWidth onClick={generatePDF}>
-                  Save as PDF
-                </Button>
-              </Grid>
-              {error && (
-                <Snackbar
-                  open={open}
-                  autoHideDuration={5000}
-                  onClose={handleClose}
-                >
-                  <Alert severity="error">{error}</Alert>
-                </Snackbar>
-              )}
-
-              {attendanceDetails && (
-                <Grid item xs={12}>
-                  <Typography align="center" variant="h6">
-                    Attendance Details
-                  </Typography>
-                  <TableContainer
-                    component={"paper"}
-                    sx={{ textAlign: "center" }}
-                  >
-                    <Table
-                      sx={{ textAlign: "center" }}
-                      stickyHeader
-                      aria-label="sticky table"
-                    >
-                      <TableHead>
-                        <TableRow>
-                          <TableCell align="center">
-                            <b>ID</b>
-                          </TableCell>
-                          <TableCell align="center">
-                            <b>Name</b>
-                          </TableCell>
-                          <TableCell align="center">
-                            <b>Batch</b>
-                          </TableCell>
-                          <TableCell align="center">
-                            <b>Status</b>
-                          </TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        <TableRow>
-                          <TableCell align="center">
-                            <Typography variant="body2">
-                              {attendanceDetails.id}
-                            </Typography>
-                          </TableCell>
-                          <TableCell align="center">
-                            <Typography variant="body2">
-                              {attendanceDetails.name}
-                            </Typography>
-                          </TableCell>
-                          <TableCell align="center">
-                            <Typography variant="body2">
-                              {attendanceDetails.batch}
-                            </Typography>
-                          </TableCell>
-                          <TableCell align="center">
-                            <Typography variant="body2">
-                              {attendanceDetails.status}
-                            </Typography>
-                          </TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
                 </Grid>
-              )}
-                            
-            </Grid>
+
+                {/* select date */}
+                <Grid item xs={12} md={6}>
+                  <FormControl fullWidth>
+                    <TextField
+                      type="date"
+                      value={date}
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                  </FormControl>
+                </Grid>
+
+                {/* fetch attendence button */}
+                <Grid item xs={12} md={6}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    fullWidth
+                    onClick={handleFetchAttendance}
+                  >
+                    Fetch Attendance
+                  </Button>
+                </Grid>
+
+                {/* save as pdf button */}
+                <Grid item xs={12} md={6}>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    fullWidth
+                    onClick={generatePDF}
+                  >
+                    Save as PDF
+                  </Button>
+                </Grid>
+
+                {/* error message */}
+                {error && (
+                  <Snackbar
+                    open={open}
+                    autoHideDuration={5000}
+                    onClose={handleClose}
+                  >
+                    <Alert severity="error">{error}</Alert>
+                  </Snackbar>
+                )}
+
+                {/* main table */}
+                {attendanceDetails && (
+                  <Grid item xs={12}>
+                    <Typography align="center" variant="h6">
+                      Attendance Details
+                    </Typography>
+                    <TableContainer
+                      component={"paper"}
+                      sx={{ textAlign: "center" }}
+                    >
+                      <Table
+                        sx={{ textAlign: "center" }}
+                        stickyHeader
+                        aria-label="sticky table"
+                      >
+                        <TableHead>
+                          <TableRow>
+                            <TableCell align="center">
+                              <b>ID</b>
+                            </TableCell>
+                            <TableCell align="center">
+                              <b>Name</b>
+                            </TableCell>
+                            <TableCell align="center">
+                              <b>Batch</b>
+                            </TableCell>
+                            <TableCell align="center">
+                              <b>Status</b>
+                            </TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          <TableRow>
+                            <TableCell align="center">
+                              <Typography variant="body2">
+                                {attendanceDetails.id}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="center">
+                              <Typography variant="body2">
+                                {attendanceDetails.name}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="center">
+                              <Typography variant="body2">
+                                {attendanceDetails.batch}
+                              </Typography>
+                            </TableCell>
+                            <TableCell align="center">
+                              <Typography variant="body2">
+                                {attendanceDetails.status}
+                              </Typography>
+                            </TableCell>
+                          </TableRow>
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </Grid>
+                )}
+              </Grid>
+            </Box>
           </Box>
-        </Box>
         </div>
       </Container>
     </>

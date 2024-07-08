@@ -29,25 +29,7 @@ import { NavLink } from "react-router-dom";
 
 const AdminPanelIndex = () => {
   const [box, setbox] = useState(<Dashboard />);
-  const attendence = () => {
-    setbox(<Dashboard />);
-  };
-  const addStudent = () => {
-    setbox(<UpdateNewStudentData />);
-  };
-  const studentAttendence = () => {
-    setbox(<ShowStudentAttendance />);
-  };
-  const batchAttendence = () => {
-    setbox(<ShowBatchAttendance />);
-  };
-  const studentMonthlyAttendence = () => {
-    setbox(<StudentReport />);
-  };
 
-  const allStudentData = () => {
-    setbox(<StudentDataTable />);
-  };
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerToggle = () => {
@@ -56,6 +38,7 @@ const AdminPanelIndex = () => {
   const drawewr = (
     <Box onClick={drawerToggle} sx={{ textAlign: "center" }}>
       <List>
+        {/* Logo */}
         <ListItemButton sx={{ width: "180px", marginTop: "8px" }}>
           <img
             src="https://radiantitservices.in/assets/images/logo.png"
@@ -63,6 +46,7 @@ const AdminPanelIndex = () => {
           />
         </ListItemButton>
 
+        {/* Mark Attendence */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -72,14 +56,15 @@ const AdminPanelIndex = () => {
 
             width: "180px",
           }}
-          onClick={attendence}
+          onClick={()=>setbox(<Dashboard/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <FactCheckIcon />
           </Avatar>
-          <Typography variant="body2">Attendence</Typography>
+          <Typography variant="body2"> Mark Attendence</Typography>
         </ListItemButton>
 
+        {/* Add Student */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -87,7 +72,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={addStudent}
+          onClick={()=>setbox(<UpdateNewStudentData/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <PersonAddIcon />
@@ -95,6 +80,7 @@ const AdminPanelIndex = () => {
           <Typography variant="body2">Add Student</Typography>
         </ListItemButton>
 
+        {/* Student Attendence */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -102,7 +88,7 @@ const AdminPanelIndex = () => {
             width: "180px",
             marginBottom: "10px",
           }}
-          onClick={studentAttendence}
+          onClick={()=>setbox(<ShowStudentAttendance/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <SchoolIcon />
@@ -110,6 +96,7 @@ const AdminPanelIndex = () => {
           <Typography variant="body2">Student Attendence</Typography>
         </ListItemButton>
 
+        {/* Batch Attendence */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -117,7 +104,7 @@ const AdminPanelIndex = () => {
             width: "180px",
             marginBottom: "10px",
           }}
-          onClick={batchAttendence}
+          onClick={()=>setbox(<ShowBatchAttendance/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <AssessmentIcon />
@@ -125,6 +112,7 @@ const AdminPanelIndex = () => {
           <Typography variant="body2">Batch Attendence</Typography>
         </ListItemButton>
 
+        {/* Monthly Attendence */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -132,7 +120,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={studentMonthlyAttendence}
+          onClick={()=>setbox(<StudentReport/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <PieChartIcon />
@@ -140,6 +128,7 @@ const AdminPanelIndex = () => {
           <Typography variant="body2">Monthly Attendence</Typography>
         </ListItemButton>
 
+        {/* All Student Data */}
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -147,7 +136,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={allStudentData}
+          onClick={()=>setbox(<StudentDataTable/>)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <TableChartIcon />
@@ -155,6 +144,7 @@ const AdminPanelIndex = () => {
           <Typography variant="body2">All Student Data</Typography>
         </ListItemButton>
 
+        {/* LogOut */}
         <NavLink to="/login">
 
             <ListItemButton
@@ -228,27 +218,30 @@ const AdminPanelIndex = () => {
         {/* Sidebar */}
         <Grid item md={2} sx={{ display: { xs: "none", md: "block" } }}>
           <List>
+
+            {/* Mark Attendence */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={attendence}
+              onClick={()=>setbox(<Dashboard/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <FactCheckIcon />
               </Avatar>
-              <Typography variant="body2">Attendence</Typography>
+              <Typography variant="body2">Mark Attendence</Typography>
             </ListItemButton>
 
+            {/* Add Student */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={addStudent}
+              onClick={()=>setbox(<UpdateNewStudentData/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <PersonAddIcon />
@@ -256,13 +249,14 @@ const AdminPanelIndex = () => {
               <Typography variant="body2">Add Student</Typography>
             </ListItemButton>
 
+            {/* Student Attendence */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={studentAttendence}
+              onClick={()=>setbox(<ShowStudentAttendance/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <SchoolIcon />
@@ -270,13 +264,14 @@ const AdminPanelIndex = () => {
               <Typography variant="body2">Student Attendence</Typography>
             </ListItemButton>
 
+            {/* Batch Attendence */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={batchAttendence}
+              onClick={()=>setbox(<ShowBatchAttendance/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <AssessmentIcon />
@@ -284,13 +279,14 @@ const AdminPanelIndex = () => {
               <Typography variant="body2">Batch Attendence</Typography>
             </ListItemButton>
 
+            {/* Student Monthly Attendence */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={studentMonthlyAttendence}
+              onClick={()=>setbox(<StudentReport/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <PieChartIcon />
@@ -300,13 +296,14 @@ const AdminPanelIndex = () => {
               </Typography>
             </ListItemButton>
 
+            {/* All Student Data< */}
             <ListItemButton
               sx={{
                 backgroundColor: "white",
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={allStudentData}
+              onClick={()=>setbox(<StudentDataTable/>)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <TableChartIcon />
@@ -314,6 +311,7 @@ const AdminPanelIndex = () => {
               <Typography variant="body2">All Student Data</Typography>
             </ListItemButton>
 
+            {/* LogOut */}
             <NavLink to="/login">
               <ListItemButton
                 sx={{
@@ -330,6 +328,8 @@ const AdminPanelIndex = () => {
             </NavLink>
           </List>
         </Grid>
+
+        {/* Right Side Container */}
         <Grid container md={10}>
           {box}
         </Grid>

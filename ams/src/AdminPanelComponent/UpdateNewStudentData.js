@@ -60,14 +60,21 @@ const UpdateNewStudentData = () => {
             boxShadow: "5px 5px 8px #cecece",
           }}
         >
+          {/* icon */}
           <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
             <PersonAddIcon />
           </Avatar>
+
+          {/* title */}
           <Typography variant="h6" textAlign={"center"}>
             Add New Student
           </Typography>
+
+          {/* main form */}
           <Box component="form" sx={{ mt: 3, display:"flex", justifyContent:"center" }}>
             <Grid container spacing={2} md={12}>
+
+              {/* user id */}
               <Grid item xs={12} md={12}>
                 <TextField
                   required
@@ -80,6 +87,7 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
+              {/* name */}
               <Grid item xs={12} md={12}>
                 <TextField
                   required
@@ -92,6 +100,7 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
+              {/* batch */}
               <Grid item xs={12} md={12}>
                 <TextField
                   required
@@ -104,6 +113,7 @@ const UpdateNewStudentData = () => {
                 />
               </Grid>
 
+              {/* add student button */}
               <Grid item xs={12} md={12}>
                 <Button type="submit" fullWidth variant="contained">
                   Add Student

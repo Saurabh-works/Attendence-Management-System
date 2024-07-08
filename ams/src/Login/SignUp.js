@@ -46,6 +46,8 @@ function SignUp() {
 
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+
+        {/* main container */}
         <Box
           sx={{
             marginTop: 8,
@@ -56,12 +58,17 @@ function SignUp() {
             padding:"25px"
           }}
         >
+          {/* icon */}
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
+
+          {/* title */}
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+
+          {/* main form */}
           <Box
             component="form"
             noValidate
@@ -69,19 +76,21 @@ function SignUp() {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
+
+              {/* user id */}
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="email"
                   label="User Id"
-                  name="email"
                   autoComplete="email"
                   type="text"
                   value={userid}
                   onChange={(e) => setUserid(e.target.value)}
                 />
               </Grid>
+
+              {/* password */}
               <Grid item xs={12}>
                 <TextField
                   required
@@ -112,6 +121,7 @@ function SignUp() {
                 />
               </Grid>
 
+              {/* select roll */}
               <Grid item xs={12}>
                 <FormControl fullWidth>
                   <InputLabel>Select Roll</InputLabel>
@@ -127,6 +137,8 @@ function SignUp() {
                 </FormControl>
               </Grid>
             </Grid>
+
+            {/* sign up button */}
             <Button
               type="submit"
               fullWidth
@@ -136,6 +148,8 @@ function SignUp() {
               Sign Up
             </Button>
             <Grid container justifyContent="center">
+
+              {/* sign in */}
               <Grid item>
                 {/* <Link href="#" variant="body2">
                   Already have an account? Sign in
