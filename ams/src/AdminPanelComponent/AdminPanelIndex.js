@@ -1,52 +1,306 @@
-import React from 'react'
-import AttendanceComponent from './AttendanceComponent';
-import UpdateNewStudentData from './UpdateNewStudentData';
-import StudentDataTable from './StudentDataTable';
-import ShowStudentAttendance from './ShowStudentAttendance';
-import ShowBatchAttendance from './ShowBatchAttendance';
-import StudentReport from './StudentReport';
-import { GiNotebook } from "react-icons/gi";
-import { IoPeopleCircleSharp } from "react-icons/io5";
-import { FaSquarePollVertical } from "react-icons/fa6";
-import { PiStudentBold } from "react-icons/pi";
-import { TbReportAnalytics } from "react-icons/tb";
-import { SiGoogleclassroom } from "react-icons/si";
-import { MdCalendarMonth } from "react-icons/md";
-import { TbLogout2 } from "react-icons/tb";
-import AdminDashboard, { AdminDashboardItem } from './AdminDashboard';
-import { Link, Route } from "react-router-dom"
+import React, { useState } from "react";
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Drawer,
+  Grid,
+  IconButton,
+  List,
+  ListItemButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import FactCheckIcon from "@mui/icons-material/FactCheck";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import ShowBatchAttendance from "./ShowBatchAttendance";
+import StudentDataTable from "./StudentDataTable";
+import Dashboard from "./Dashboard";
+import StudentReport from "./StudentReport";
+import MenuIcon from "@mui/icons-material/Menu";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import UpdateNewStudentData from "./UpdateNewStudentData";
+import ShowStudentAttendance from "./ShowStudentAttendance";
+import SchoolIcon from "@mui/icons-material/School";
+import PieChartIcon from '@mui/icons-material/PieChart';
+import TableChartIcon from '@mui/icons-material/TableChart';
 
-function AdminPanelIndex() {
+const AdminPanelIndex = () => {
+  const [box, setbox] = useState(<Dashboard />);
+  const attendence = () => {
+    setbox(<Dashboard />);
+  };
+  const addStudent = () => {
+    setbox(<UpdateNewStudentData />);
+  };
+  const studentAttendence = () => {
+    setbox(<ShowStudentAttendance />);
+  };
+  const batchAttendence = () => {
+    setbox(<ShowBatchAttendance />);
+  };
+  const studentMonthlyAttendence = () => {
+    setbox(<StudentReport />);
+  };
+
+  const allStudentData = () => {
+    setbox(<StudentDataTable />);
+  };
+
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const drawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+  const drawewr = (
+    <Box onClick={drawerToggle} sx={{ textAlign: "center" }}>
+      <List>
+        <ListItemButton sx={{ width: "180px", marginTop: "8px" }}>
+          <img
+            src="https://radiantitservices.in/assets/images/logo.png"
+            alt="company logo"
+          />
+        </ListItemButton>
+        <ListItemButton
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            marginBottom: "10px",
+            marginTop: "18px",
+
+            width: "180px",
+          }}
+          onClick={attendence}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <FactCheckIcon />
+          </Avatar>
+          <Typography variant="body2">Attendence</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            marginBottom: "10px",
+            width: "180px",
+          }}
+          onClick={addStudent}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <PersonAddIcon />
+          </Avatar>
+          <Typography variant="body2">Add Student</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            width: "180px",
+            marginBottom: "10px",
+
+          }}
+          onClick={studentAttendence}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <SchoolIcon />
+          </Avatar>
+          <Typography variant="body2">Student Attendence</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            width: "180px",
+            marginBottom: "10px",
+
+          }}
+          onClick={batchAttendence}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <AssessmentIcon />
+          </Avatar>
+          <Typography variant="body2">Batch Attendence</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+                width: "180px",
+              }}
+              onClick={studentMonthlyAttendence}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <PieChartIcon />
+              </Avatar>
+              <Typography variant="body2">Monthly Attendence</Typography>
+            </ListItemButton>
+
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+                width: "180px",
+              }}
+              onClick={allStudentData}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <TableChartIcon />
+              </Avatar>
+              <Typography variant="body2">All Student Data</Typography>
+            </ListItemButton>
+      </List>
+    </Box>
+  );
   return (
-    <>
-      {/* <AttendanceComponent></AttendanceComponent> <hr/> <br/> <br/>
-      <UpdateNewStudentData></UpdateNewStudentData> <hr/> <br/> <br/>
-      <StudentDataTable></StudentDataTable> <hr/> <br/> <br/>
-      <ShowStudentAttendance></ShowStudentAttendance> <hr/> <br/> <br/>
-      <ShowBatchAttendance></ShowBatchAttendance> <hr/> <br/> <br/>
-      <StudentReport></StudentReport> <hr/> <br/> <br/> */}
+    <div style={{ backgroundColor: "#f3f3f3", margin: "0", padding: "0" }}>
+      {/* Navbar */}
+      <AppBar position="static" sx={{ marginBottom: "25px" }}>
+        <Toolbar>
+          <IconButton
+            aria-label="open drawer"
+            edge="start"
+            sx={{
+              color: "white",
+              display: { xs: "bolck", md: "none" },
+            }}
+            onClick={drawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+          <IconButton>
+            <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD78tIncXSE0NtnNasmNdK9wKE8zOV8xW88Q&s" />
+          </IconButton>
+          <IconButton sx={{ p: 0, marginLeft: "auto" }}>
+            <Typography color={"white"} sx={{ marginRight: "15px" }}>
+              Teacher Name
+            </Typography>
+            <Avatar
+              alt="Teacher"
+              src="https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?q=80&w=1886&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
 
+      {/* mobile nav */}
+      <Box component={"nav"}>
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onClose={drawerToggle}
+          sx={{
+            display: { xs: "block", lg: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: "200px",
+              backgroundColor: "#f3f3f3",
+            },
+          }}
+        >
+          {drawewr}
+        </Drawer>
+      </Box>
+      <Grid container spacing={2} p={2} justifyContent={"space-around"}>
+        {/* Sidebar */}
+        <Grid item md={2} sx={{ display: { xs: "none", md: "block" } }}>
+          <List>
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={attendence}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <FactCheckIcon />
+              </Avatar>
+              <Typography variant="body2">Attendence</Typography>
+            </ListItemButton>
 
-      <div className="flex">
-        <AdminDashboard>
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={addStudent}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <PersonAddIcon />
+              </Avatar>
+              <Typography variant="body2">Add Student</Typography>
+            </ListItemButton>
 
-          <Link to="/AttendanceComponent"><AdminDashboardItem icon={<GiNotebook size={20} />} text="Mark Attendence" /></Link>
-          <Link to="/UpdateNewStudentData"><AdminDashboardItem icon={<IoPeopleCircleSharp size={20} />} text="Add New Student" /></Link>
-          <Link to="/StudentDataTable"><AdminDashboardItem icon={<PiStudentBold size={20} />} text="Student Attendence" /></Link>
-          <AdminDashboardItem icon={<FaSquarePollVertical size={20} />} text="Report" alert />
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={studentAttendence}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <SchoolIcon />
+              </Avatar>
+              <Typography variant="body2">Student Attendence</Typography>
+            </ListItemButton>
 
-          <Link to="/ShowStudentAttendance"><AdminDashboardItem icon={<TbReportAnalytics size={20} />} text="Student Attendence" /></Link>
-          <Link to="/ShowBatchAttendance"><AdminDashboardItem icon={<SiGoogleclassroom size={20} />} text="Batch Attendence" /></Link>
-          <Link to="/StudentReport"><AdminDashboardItem icon={<MdCalendarMonth size={20} />} text="Monthly Attendence" /></Link>
-          <AdminDashboardItem icon={<TbLogout2 size={20} />} text="Logout" />
-          {/* <Route path='/AttendanceComponent'><AttendanceComponent/></Route> */}
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={batchAttendence}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <AssessmentIcon />
+              </Avatar>
+              <Typography variant="body2">Batch Attendence</Typography>
+            </ListItemButton>
 
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={studentMonthlyAttendence}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <PieChartIcon />
+              </Avatar>
+              <Typography variant="body2">Student Monthly Attendence</Typography>
+            </ListItemButton>
 
-        </AdminDashboard>
-      </div>
+            <ListItemButton
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "30px",
+                marginBottom: "10px",
+              }}
+              onClick={allStudentData}
+            >
+              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                <TableChartIcon />
+              </Avatar>
+              <Typography variant="body2">All Student Data</Typography>
+            </ListItemButton>
+          </List>
+        </Grid>
+        <Grid container md={10}>
+          {box}
+        </Grid>
+      </Grid>
+    </div>
+  );
+};
 
-
-    </>
-  )
-}
 export default AdminPanelIndex;

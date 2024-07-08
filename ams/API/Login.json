@@ -118,6 +118,11 @@
       "id": "12",
       "name": "Aaruksha",
       "batch": "B"
+    },
+    {
+      "id": 14,
+      "name": "Anjali",
+      "batch": "A"
     }
   ],
   "attendance": {
@@ -134,6 +139,28 @@
         {
           "studentId": "6",
           "status": "Present"
+        }
+      ],
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
         }
       ]
     },
@@ -179,11 +206,77 @@
         },
         {
           "studentId": "2",
-          "status": "Absent"
+          "status": "Present"
         },
         {
           "studentId": "5",
           "status": "Present"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        },
+        {
+          "studentId": "11",
+          "status": "Absent"
+        },
+        {
+          "studentId": "12",
+          "status": "Absent"
+        }
+      ],
+      "B": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "3",
+          "status": "Present"
+        },
+        {
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Present"
+        },
+        {
+          "studentId": "8",
+          "status": "Present"
+        },
+        {
+          "studentId": "9",
+          "status": "Absent"
+        },
+        {
+          "studentId": "10",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Absent"
+        },
+        {
+          "studentId": "12",
+          "status": "Absent"
         }
       ]
     },
@@ -199,7 +292,15 @@
         },
         {
           "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "4",
           "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
         },
         {
           "studentId": "6",
@@ -207,7 +308,7 @@
         },
         {
           "studentId": "7",
-          "status": "Absent"
+          "status": "Present"
         },
         {
           "studentId": "8",
@@ -215,10 +316,6 @@
         },
         {
           "studentId": "9",
-          "status": "Present"
-        },
-        {
-          "studentId": "11",
           "status": "Present"
         }
       ],
@@ -321,6 +418,20 @@
           "studentId": "9",
           "status": "Absent"
         }
+      ],
+      "B": [
+        {
+          "studentId": "10",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Absent"
+        },
+        {
+          "studentId": "13",
+          "status": "Absent"
+        }
       ]
     },
     "2024-06-06": {
@@ -393,27 +504,7 @@
       "A": [
         {
           "studentId": "1",
-          "status": "Present"
-        },
-        {
-          "studentId": "2",
           "status": "Absent"
-        },
-        {
-          "studentId": "5",
-          "status": "Present"
-        },
-        {
-          "studentId": "8",
-          "status": "Present"
-        },
-        {
-          "studentId": "9",
-          "status": "Present"
-        },
-        {
-          "studentId": "11",
-          "status": "Present"
         }
       ]
     },
@@ -449,11 +540,11 @@
         }
       ]
     },
-    "2024-07-03": {
+    "2024-06-01": {
       "A": [
         {
           "studentId": "1",
-          "status": "Absent"
+          "status": "Present"
         },
         {
           "studentId": "2",
@@ -464,12 +555,8 @@
           "status": "Present"
         },
         {
-          "studentId": "4",
-          "status": "Present"
-        },
-        {
           "studentId": "5",
-          "status": "Absent"
+          "status": "Present"
         },
         {
           "studentId": "6",
@@ -481,11 +568,55 @@
         },
         {
           "studentId": "8",
-          "status": "Present"
+          "status": "Absent"
         },
         {
           "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
           "status": "Absent"
+        }
+      ]
+    },
+    "2024-06-03": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
         },
         {
           "studentId": "11",
@@ -494,9 +625,131 @@
         {
           "studentId": "12",
           "status": "Present"
+        }
+      ]
+    },
+    "2024-06-04": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "4",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-06-05": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-06-02": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Present"
+        },
+        {
+          "studentId": "3",
+          "status": "Absent"
+        },
+        {
+          "studentId": "5",
+          "status": "Present"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "7",
+          "status": "Absent"
+        },
+        {
+          "studentId": "8",
+          "status": "Absent"
+        },
+        {
+          "studentId": "9",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Absent"
+        }
+      ],
+      "B": [
+        {
+          "studentId": "10",
+          "status": "Present"
+        },
+        {
+          "studentId": "12",
+          "status": "Absent"
         },
         {
           "studentId": "13",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-07-23": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
           "status": "Absent"
         }
       ]

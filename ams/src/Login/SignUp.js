@@ -15,6 +15,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { FormControl, Select, MenuItem, InputLabel } from "@mui/material";
 
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 function SignUp() {
   const [userid, setUserid] = useState("");
   const [password, setPassword] = useState("");
@@ -32,6 +37,9 @@ function SignUp() {
     }
   };
 
+  const [showPassword, setShowPassword] = useState(false);
+
+
   return (
     <>
       
@@ -44,7 +52,7 @@ function SignUp() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            boxShadow: "10px 10px 10px #cecece",
+            boxShadow: "0px 0px 10px #cecece",
             padding:"25px"
           }}
         >
@@ -80,11 +88,27 @@ function SignUp() {
                   fullWidth
                   name="password"
                   label="Password"
-                  type="password"
                   id="password"
                   autoComplete="new-password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  type={showPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      onClick={() => setShowPassword(!showPassword)}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <VisibilityOffIcon color="primary" />
+                      ) : (
+                        <VisibilityIcon color="primary" />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
                 />
               </Grid>
 
