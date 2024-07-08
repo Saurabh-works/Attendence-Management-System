@@ -24,6 +24,15 @@ const AttendanceComponent = () => {
   const [batch, setBatch] = useState("");
   const [date, setDate] = useState("");
   const [attendance, setAttendance] = useState({});
+  const [rowColors, setRowColors] = useState({});
+
+    const handleColorChange = (id, color) => {
+      setRowColors((prevColors) => ({
+        ...prevColors,
+        [id]: color,
+      }));
+    };
+  
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -76,10 +85,8 @@ const AttendanceComponent = () => {
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Box component="div" sx={{ mt: 3 }}>
-
           {/* main form */}
           <Grid container spacing={2}>
-
             {/* select batch */}
             <Grid item md={6} lg={6} xs={12}>
               <FormControl fullWidth>
@@ -133,7 +140,10 @@ const AttendanceComponent = () => {
                   </TableHead>
                   <TableBody>
                     {filteredStudents.map((student) => (
-                      <TableRow key={student.id}>
+                      <TableRow
+                        key={student.id}
+                        sx={{ backgroundColor: rowColors[student.id] }}
+                      >
                         <TableCell align="center">{student.id}</TableCell>
                         <TableCell align="center">{student.name}</TableCell>
                         <TableCell align="center">{student.batch}</TableCell>
@@ -142,9 +152,10 @@ const AttendanceComponent = () => {
                             variant="outlined"
                             size="small"
                             sx={{ me: 3, fontSize: { xs: "8px", md: "" } }}
-                            onClick={() =>
-                              handleAttendance(student.id, "Present")
-                            }
+                            onClick={() => {
+                              handleAttendance(student.id, "Present");
+                              handleColorChange(student.id, "#e8f5e9");
+                            }}
                           >
                             Present
                           </Button>
@@ -156,9 +167,10 @@ const AttendanceComponent = () => {
                               marginLeft: { xs: "0", md: "10px" },
                               fontSize: { xs: "8px", md: "" },
                             }}
-                            onClick={() =>
-                              handleAttendance(student.id, "Absent")
-                            }
+                            onClick={() => {
+                              handleAttendance(student.id, "Absent");
+                              handleColorChange(student.id, "#ffebee");
+                            }}
                           >
                             Absent
                           </Button>
