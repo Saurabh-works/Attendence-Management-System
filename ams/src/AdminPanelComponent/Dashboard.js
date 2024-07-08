@@ -1,10 +1,5 @@
 import React from "react";
 import AttendanceComponent from "./AttendanceComponent";
-import UpdateNewStudentData from "./UpdateNewStudentData";
-import StudentDataTable from "./StudentDataTable";
-import ShowStudentAttendance from "./ShowStudentAttendance";
-import ShowBatchAttendance from "./ShowBatchAttendance";
-import StudentReport from "./StudentReport";
 import {
   Avatar,
   Box,
@@ -36,7 +31,7 @@ function Dashboard() {
             // columnGap={0.2}
             sx={{justifyContent:{xs:"space-around", md:"space-between"}, rowGap:1}}
           >
-            
+            {/* Total Students */}
             <Grid
               item
               sx={{
@@ -62,6 +57,7 @@ function Dashboard() {
               </Box>
             </Grid>
 
+            {/* Total Batches */}
             <Grid
               item
               sx={{
@@ -87,6 +83,7 @@ function Dashboard() {
               </Box>
             </Grid>
 
+            {/* Report */}
             <Grid
               item
               sx={{
@@ -112,6 +109,7 @@ function Dashboard() {
               </Box>
             </Grid>
 
+            {/* Assignment Submited */}
             <Grid
               item
               sx={{
@@ -137,6 +135,8 @@ function Dashboard() {
               </Box>
             </Grid>
           </Grid>
+
+
           {/* Attendence */}
           <Grid
             item

@@ -139,21 +139,27 @@ const StudentReport = () => {
               borderRadius: "15px",
             }}
           >
+            {/* icon */}
             <Avatar
               sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
             >
               <PieChartIcon />
             </Avatar>
+
+            {/* title */}
             <Typography variant="h6" textAlign={"center"}>
               Student Monthly Attendance Report
             </Typography>
 
+            {/* main form */}
             <Box
               onSubmit={handelFormSubmit}
               component="form"
               sx={{ mt: 3, display: "flex", justifyContent: "center" }}
             >
                <Grid container spacing={2}>
+
+                {/* select batch */}
                 <Grid item xs={12} md={4}>
                   <FormControl fullWidth>
                     <InputLabel>Select Batch</InputLabel>
@@ -169,6 +175,7 @@ const StudentReport = () => {
                   </FormControl>
                 </Grid>
 
+                {/* user id */}
                 <Grid item xs={12} md={4}>
                   <TextField
                     required
@@ -181,6 +188,7 @@ const StudentReport = () => {
                   />
                 </Grid>
 
+                {/* select month */}
                 <Grid item xs={12} md={4}>
                   <FormControl fullWidth>
                     <TextField
@@ -191,18 +199,21 @@ const StudentReport = () => {
                   </FormControl>
                 </Grid>
 
+                {/* fetch attendence button */}
                 <Grid item xs={12} md={6}>
-                  <Button variant="contained" fullWidth onClick={handleSubmit}>
+                  <Button size="small" variant="contained" fullWidth onClick={handleSubmit}>
                     Fetch Attendance
                   </Button>
                 </Grid>
 
+                {/* save as pdf button */}
                 <Grid item xs={12} md={6}>
-                  <Button variant="contained" fullWidth onClick={generatePDF}>
+                  <Button size="small" variant="contained" fullWidth onClick={generatePDF}>
                     Save as PDF
                   </Button>
                 </Grid>
 
+                {/* error message */}
                 {errorMessage && (
                   <Snackbar
                     open={open}
@@ -213,9 +224,12 @@ const StudentReport = () => {
                   </Snackbar>
                 )}
 
+                {/* main container */}
                 {student && (
                   <Grid item xs={12} md={7} mt={3}>
                     <Grid container spacing={2}>
+
+                      {/* details card */}
                       <Grid item xs={12} md={8}>
                         <Card
                           sx={{
@@ -295,6 +309,7 @@ const StudentReport = () => {
                         </Card>
                       </Grid>
 
+                      {/* piechart */}
                       <Grid item xs={12} md={4}>
                         <PieChart
                           series={[
