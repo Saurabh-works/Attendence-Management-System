@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useReactToPrint } from "react-to-print";
 import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
@@ -41,12 +41,10 @@ const StudentReport = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [open, setOpen] = React.useState(false);
 
-
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
@@ -106,18 +104,22 @@ const StudentReport = () => {
     }
   };
 
+  useEffect(() => {
+    if (student) {
+      fetchAttendance(student.batch, student.id, month);
+    }
+  }, [student, month]);
+
   const handleSubmit = async () => {
-    setOpen(true);
     if (!batch || !studentId || !month) {
       setErrorMessage("Please enter batch, student ID, and month.");
+      setOpen(true);
       return;
     }
 
     await fetchStudent(studentId);
-    if (student) {
-      await fetchAttendance(batch, studentId, month);
-    }
   };
+
   const generatePDF = useReactToPrint({
     content: () => componentPDF.current,
     documentTitle: "StudentDataTable",
@@ -140,6 +142,7 @@ const StudentReport = () => {
               boxShadow: "5px 5px 8px #cecece",
             }}
           >
+            
             {/* icon */}
             <Avatar
               sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
@@ -158,9 +161,7 @@ const StudentReport = () => {
               component="form"
               sx={{ mt: 3, display: "flex", justifyContent: "center" }}
             >
-               <Grid container spacing={2}>
-
-                {/* select batch */}
+              <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
                   <FormControl fullWidth>
                     <InputLabel>Select Batch</InputLabel>
@@ -241,7 +242,7 @@ const StudentReport = () => {
                           }}
                         >
                           <CardContent>
-                            <Box mb={1} >
+                            <Box mb={1}>
                               <Typography variant="h6" align="center">
                                 Student Details
                               </Typography>
@@ -295,7 +296,7 @@ const StudentReport = () => {
                               </TableContainer>
                             </Box>
                             <Divider />
-                            <Box mt={1} >
+                            <Box mt={1}>
                               <Typography align="center">
                                 Total Attendance
                               </Typography>
