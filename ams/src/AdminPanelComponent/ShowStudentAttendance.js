@@ -101,6 +101,7 @@ const ShowStudentAttendance = () => {
             backgroundColor: "white",
             padding: "25px",
             borderRadius: "15px",
+            boxShadow: "5px 5px 8px #cecece",
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>

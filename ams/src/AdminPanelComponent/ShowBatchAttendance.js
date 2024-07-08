@@ -102,6 +102,9 @@ const ShowBatchAttendance = () => {
               backgroundColor: "white",
               padding: "25px",
               borderRadius: "15px",
+              boxShadow: "5px 5px 8px #cecece",
+              maxHeight:"500px",
+              overflow:"auto"
             }} 
           >
             <Avatar
