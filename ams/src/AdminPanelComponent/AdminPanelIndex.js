@@ -11,7 +11,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+import LogoutIcon from "@mui/icons-material/Logout";
 import FactCheckIcon from "@mui/icons-material/FactCheck";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import ShowBatchAttendance from "./ShowBatchAttendance";
@@ -23,8 +23,9 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import UpdateNewStudentData from "./UpdateNewStudentData";
 import ShowStudentAttendance from "./ShowStudentAttendance";
 import SchoolIcon from "@mui/icons-material/School";
-import PieChartIcon from '@mui/icons-material/PieChart';
-import TableChartIcon from '@mui/icons-material/TableChart';
+import PieChartIcon from "@mui/icons-material/PieChart";
+import TableChartIcon from "@mui/icons-material/TableChart";
+import { NavLink } from "react-router-dom";
 
 const AdminPanelIndex = () => {
   const [box, setbox] = useState(<Dashboard />);
@@ -61,6 +62,7 @@ const AdminPanelIndex = () => {
             alt="company logo"
           />
         </ListItemButton>
+
         <ListItemButton
           sx={{
             backgroundColor: "white",
@@ -99,7 +101,6 @@ const AdminPanelIndex = () => {
             borderRadius: "30px",
             width: "180px",
             marginBottom: "10px",
-
           }}
           onClick={studentAttendence}
         >
@@ -115,7 +116,6 @@ const AdminPanelIndex = () => {
             borderRadius: "30px",
             width: "180px",
             marginBottom: "10px",
-
           }}
           onClick={batchAttendence}
         >
@@ -126,19 +126,36 @@ const AdminPanelIndex = () => {
         </ListItemButton>
 
         <ListItemButton
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "30px",
-                marginBottom: "10px",
-                width: "180px",
-              }}
-              onClick={studentMonthlyAttendence}
-            >
-              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
-                <PieChartIcon />
-              </Avatar>
-              <Typography variant="body2">Monthly Attendence</Typography>
-            </ListItemButton>
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            marginBottom: "10px",
+            width: "180px",
+          }}
+          onClick={studentMonthlyAttendence}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <PieChartIcon />
+          </Avatar>
+          <Typography variant="body2">Monthly Attendence</Typography>
+        </ListItemButton>
+
+        <ListItemButton
+          sx={{
+            backgroundColor: "white",
+            borderRadius: "30px",
+            marginBottom: "10px",
+            width: "180px",
+          }}
+          onClick={allStudentData}
+        >
+          <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+            <TableChartIcon />
+          </Avatar>
+          <Typography variant="body2">All Student Data</Typography>
+        </ListItemButton>
+
+        <NavLink to="/login">
 
             <ListItemButton
               sx={{
@@ -147,13 +164,14 @@ const AdminPanelIndex = () => {
                 marginBottom: "10px",
                 width: "180px",
               }}
-              onClick={allStudentData}
+              
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
-                <TableChartIcon />
+                <LogoutIcon />
               </Avatar>
-              <Typography variant="body2">All Student Data</Typography>
+              <Typography variant="body2">LogOut</Typography>
             </ListItemButton>
+            </NavLink>
       </List>
     </Box>
   );
@@ -277,7 +295,9 @@ const AdminPanelIndex = () => {
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <PieChartIcon />
               </Avatar>
-              <Typography variant="body2">Student Monthly Attendence</Typography>
+              <Typography variant="body2">
+                Student Monthly Attendence
+              </Typography>
             </ListItemButton>
 
             <ListItemButton
@@ -293,6 +313,21 @@ const AdminPanelIndex = () => {
               </Avatar>
               <Typography variant="body2">All Student Data</Typography>
             </ListItemButton>
+
+            <NavLink to="/login">
+              <ListItemButton
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: "30px",
+                  marginBottom: "10px",
+                }}
+              >
+                <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+                  <LogoutIcon />
+                </Avatar>
+                <Typography variant="body2">LogOut</Typography>
+              </ListItemButton>
+            </NavLink>
           </List>
         </Grid>
         <Grid container md={10}>
