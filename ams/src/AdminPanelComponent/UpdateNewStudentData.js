@@ -125,3 +125,7 @@ const UpdateNewStudentData = () => {
 };
 
 export default UpdateNewStudentData;
+
+
+
+
