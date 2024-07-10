@@ -113,6 +113,11 @@
       "id": "14",
       "name": "Anjali",
       "batch": "B"
+    },
+    {
+      "id": 13,
+      "name": "Shubham Dhake",
+      "batch": "B"
     }
   ],
   "attendance": {
@@ -123,8 +128,8 @@
           "status": "Present"
         },
         {
-          "studentId": "2",
-          "status": "Present"
+          "studentId": "4",
+          "status": "Absent"
         },
         {
           "studentId": "3",
@@ -360,6 +365,46 @@
         },
         {
           "studentId": "14",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-07-07": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        }
+      ]
+    },
+    "2024-07-05": {
+      "A": [
+        {
+          "studentId": "1",
+          "status": "Present"
+        },
+        {
+          "studentId": "2",
+          "status": "Absent"
+        },
+        {
+          "studentId": "3",
+          "status": "Present"
+        },
+        {
+          "studentId": "4",
+          "status": "Present"
+        },
+        {
+          "studentId": "5",
+          "status": "Absent"
+        },
+        {
+          "studentId": "6",
+          "status": "Present"
+        },
+        {
+          "studentId": "11",
           "status": "Present"
         }
       ]
