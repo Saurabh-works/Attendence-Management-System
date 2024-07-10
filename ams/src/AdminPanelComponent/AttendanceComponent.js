@@ -19,6 +19,7 @@ import {
   TextField,
   Paper,
 } from "@mui/material";
+import BatchReport from "../Report/BatchReport";
 
 const AttendanceComponent = () => {
   const [students, setStudents] = useState([]);
@@ -192,6 +193,7 @@ const AttendanceComponent = () => {
           </Grid>
         </Box>
       </Container>
+      <BatchReport></BatchReport>
     </>
   );
 };
