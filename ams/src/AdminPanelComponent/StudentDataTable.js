@@ -65,8 +65,8 @@ const StudentDataTable = () => {
   });
 
   return (
-    <div>
-      <Container component={"div"} maxWidth="lg" sx={{ mt: 3,  }}>
+    
+      <Container component={"main"} maxWidth="lg">
         <div ref={componentPDF}>
           <CssBaseline />
           <Grid
@@ -79,7 +79,7 @@ const StudentDataTable = () => {
               padding: "25px",
               borderRadius: "15px",
               boxShadow: "5px 5px 8px #cecece",
-              maxHeight:"500px",
+              maxHeight:"550px",
               overflowY:"scroll"
             }}
           >
@@ -91,13 +91,13 @@ const StudentDataTable = () => {
             </Typography>
 
             <Box
-              component="form"
-              sx={{ mt: 3, display: "flex", justifyContent: "center" }}
+              component="div" 
+              sx={{ mt: 3, display: "flex" }}
             >
               <Grid container spacing={2}>
-                <Grid item xs={12}>
-                  <Typography variant="body2">Select Batch</Typography>
-                  <FormControl sx={{ width: "300px" }}>
+                <Grid item md={12} lg={12} xs={12}>
+                  <Typography variant="div">Select Batch</Typography>
+                  <FormControl fullWidth>
                     <Select value={selectedBatch} onChange={handleBatchChange}>
                       <MenuItem value="" selected>
                         All Batches
@@ -106,42 +106,43 @@ const StudentDataTable = () => {
                       <MenuItem value="B">Batch B</MenuItem>
                     </Select>
                   </FormControl>
+                </Grid>
 
-                  <Grid item xs={12}>
-                    <Table>
-                      <TableHead>
-                        <TableRow>
+                <Grid item md={12} lg={12} xs={12}>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell align="center">
+                          <b>ID</b>
+                        </TableCell>
+                        <TableCell align="center">
+                          <b>Name</b>
+                        </TableCell>
+                        <TableCell align="center">
+                          <b>Batch</b>
+                        </TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {filteredStudents.map((student) => (
+                        <TableRow key={student.id}>
+                          <TableCell align="center">{student.id}</TableCell>
+                          <TableCell align="center">{student.name}</TableCell>
                           <TableCell align="center">
-                            <b>ID</b>
-                          </TableCell>
-                          <TableCell align="center">
-                            <b>Name</b>
-                          </TableCell>
-                          <TableCell align="center">
-                            <b>Batch</b>
+                            {student.batch}
                           </TableCell>
                         </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {filteredStudents.map((student) => (
-                          <TableRow key={student.id}>
-                            <TableCell align="center">{student.id}</TableCell>
-                            <TableCell align="center">{student.name}</TableCell>
-                            <TableCell align="center">
-                              {student.batch}
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Grid>
+                      ))}
+                    </TableBody>
+                  </Table>
                 </Grid>
+              
               </Grid>
             </Box>
           </Grid>
         </div>
       </Container>
-    </div>
+    
   );
 };
 
