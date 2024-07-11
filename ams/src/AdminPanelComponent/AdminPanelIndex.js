@@ -27,9 +27,13 @@ import PieChartIcon from "@mui/icons-material/PieChart";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import { NavLink } from "react-router-dom";
 
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+
 const AdminPanelIndex = () => {
   const [box, setbox] = useState(<Dashboard />);
-
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const drawerToggle = () => {
@@ -56,7 +60,7 @@ const AdminPanelIndex = () => {
 
             width: "180px",
           }}
-          onClick={()=>setbox(<Dashboard/>)}
+          onClick={() => setbox(<Dashboard />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <FactCheckIcon />
@@ -72,7 +76,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={()=>setbox(<UpdateNewStudentData/>)}
+          onClick={() => setbox(<UpdateNewStudentData />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <PersonAddIcon />
@@ -88,7 +92,7 @@ const AdminPanelIndex = () => {
             width: "180px",
             marginBottom: "10px",
           }}
-          onClick={()=>setbox(<ShowStudentAttendance/>)}
+          onClick={() => setbox(<ShowStudentAttendance />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <SchoolIcon />
@@ -104,7 +108,7 @@ const AdminPanelIndex = () => {
             width: "180px",
             marginBottom: "10px",
           }}
-          onClick={()=>setbox(<ShowBatchAttendance/>)}
+          onClick={() => setbox(<ShowBatchAttendance />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <AssessmentIcon />
@@ -120,7 +124,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={()=>setbox(<StudentReport/>)}
+          onClick={() => setbox(<StudentReport />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <PieChartIcon />
@@ -136,7 +140,7 @@ const AdminPanelIndex = () => {
             marginBottom: "10px",
             width: "180px",
           }}
-          onClick={()=>setbox(<StudentDataTable/>)}
+          onClick={() => setbox(<StudentDataTable />)}
         >
           <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
             <TableChartIcon />
@@ -146,22 +150,20 @@ const AdminPanelIndex = () => {
 
         {/* LogOut */}
         <NavLink to="/login">
-
-            <ListItemButton
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "30px",
-                marginBottom: "10px",
-                width: "180px",
-              }}
-              
-            >
-              <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
-                <LogoutIcon />
-              </Avatar>
-              <Typography variant="body2">LogOut</Typography>
-            </ListItemButton>
-            </NavLink>
+          <ListItemButton
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "30px",
+              marginBottom: "10px",
+              width: "180px",
+            }}
+          >
+            <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
+              <LogoutIcon />
+            </Avatar>
+            <Typography variant="body2">LogOut</Typography>
+          </ListItemButton>
+        </NavLink>
       </List>
     </Box>
   );
@@ -218,7 +220,6 @@ const AdminPanelIndex = () => {
         {/* Sidebar */}
         <Grid item md={2} sx={{ display: { xs: "none", md: "block" } }}>
           <List>
-
             {/* Mark Attendence */}
             <ListItemButton
               sx={{
@@ -226,7 +227,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<Dashboard/>)}
+              onClick={() => setbox(<Dashboard />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <FactCheckIcon />
@@ -241,7 +242,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<UpdateNewStudentData/>)}
+              onClick={() => setbox(<UpdateNewStudentData />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <PersonAddIcon />
@@ -256,7 +257,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<ShowStudentAttendance/>)}
+              onClick={() => setbox(<ShowStudentAttendance />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <SchoolIcon />
@@ -271,7 +272,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<ShowBatchAttendance/>)}
+              onClick={() => setbox(<ShowBatchAttendance />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <AssessmentIcon />
@@ -286,7 +287,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<StudentReport/>)}
+              onClick={() => setbox(<StudentReport />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <PieChartIcon />
@@ -303,7 +304,7 @@ const AdminPanelIndex = () => {
                 borderRadius: "30px",
                 marginBottom: "10px",
               }}
-              onClick={()=>setbox(<StudentDataTable/>)}
+              onClick={() => setbox(<StudentDataTable />)}
             >
               <Avatar sx={{ marginRight: "15px", bgcolor: "primary.main" }}>
                 <TableChartIcon />
@@ -333,6 +334,46 @@ const AdminPanelIndex = () => {
         <Grid container md={10}>
           {box}
         </Grid>
+      </Grid>
+
+      <Grid
+        container
+        md={12}
+        justifyContent={"center"}
+        sx={{ backgroundColor: "white" }}
+        pt={4}
+        pb={4}
+      >
+        <Box component={"footer"}>
+          <Typography variant="body2">
+            <Box sx={{ display: "flex", justifyContent: "center" }} mb={1}>
+              <IconButton href="https://www.instagram.com/radiant_it_services/" target="blank">
+                <InstagramIcon
+                  sx={{ color: "primary.main"}}
+                />
+              </IconButton>
+              <IconButton href="https://www.facebook.com/RadiantITServices" target="blank">
+                <FacebookIcon
+                  sx={{ color: "primary.main"}}
+                />
+              </IconButton>
+              <IconButton href="https://www.linkedin.com/company/radiant-it-services/" target="blank">
+                <LinkedInIcon
+                  sx={{ color: "primary.main"}}
+                />
+              </IconButton>
+              <IconButton href="https://www.youtube.com/@radiantitservices" target="blank">
+                <YouTubeIcon
+                  sx={{ color: "primary.main"}}
+                />
+              </IconButton>
+            </Box>
+            &copy; {new Date().getFullYear()} Copyright:{" "}
+            <a className="text-dark" href="https://radiantitservices.in/">
+              Radiant IT Services Pvt. Ltd.
+            </a>
+          </Typography>
+        </Box>
       </Grid>
     </div>
   );
