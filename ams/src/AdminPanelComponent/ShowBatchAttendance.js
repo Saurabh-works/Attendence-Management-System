@@ -26,27 +26,24 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 const ShowBatchAttendance = () => {
   const componentPDF = useRef();
   const [batch, setBatch] = useState("");
-  const [date, setDate] = useState("");
+  const [month, setMonth] = useState("");
   const [attendanceDetails, setAttendanceDetails] = useState([]);
   const [error, setError] = useState("");
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
-  const handelSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-  };
 
-  const handleFetchAttendance = async () => {
-    setOpen(true);
-    if (!batch || !date) {
-      setError("Please select both batch and date.");
+    if (!batch || !month) {
+      setError("Please select both batch and month.");
+      setOpen(true);
       return;
     }
 
@@ -54,31 +51,39 @@ const ShowBatchAttendance = () => {
       const response = await axios.get(`http://localhost:5000/attendance`);
       const attendanceData = response.data;
 
-      if (attendanceData[date] && attendanceData[date][batch]) {
-        const batchAttendance = attendanceData[date][batch];
+      const studentResponse = await axios.get(`http://localhost:5000/students`);
+      const students = studentResponse.data;
 
-        const studentResponse = await axios.get(
-          `http://localhost:5000/students`
-        );
-        const students = studentResponse.data;
+      const monthAttendance = Object.entries(attendanceData)
+        .filter(([key]) => key.startsWith(month))
+        .map(([_, value]) => value[batch] || [])
+        .flat();
 
-        const attendanceWithDetails = batchAttendance.map((att) => {
-          const student = students.find((s) => s.id === att.studentId);
+      const attendanceWithDetails = students
+        .filter((student) => student.batch === batch)
+        .map((student) => {
+          const studentAttendance = monthAttendance.filter(
+            (att) => att.studentId === student.id
+          );
+          const presentCount = studentAttendance.filter(
+            (att) => att.status === "Present"
+          ).length;
+          const absentCount = studentAttendance.filter(
+            (att) => att.status === "Absent"
+          ).length;
           return {
             ...student,
-            status: att.status,
+            presentCount,
+            absentCount,
           };
         });
 
-        setAttendanceDetails(attendanceWithDetails);
-        setError("");
-      } else {
-        setError("No attendance records found for the given date and batch.");
-        setAttendanceDetails([]);
-      }
+      setAttendanceDetails(attendanceWithDetails);
+      setError("");
     } catch (error) {
       console.error("Error fetching attendance details:", error);
       setError("Error fetching attendance details. Please try again.");
+      setOpen(true);
       setAttendanceDetails([]);
     }
   };
@@ -107,26 +112,20 @@ const ShowBatchAttendance = () => {
               overflow: "auto",
             }}
           >
-            {/* Icon */}
-            <Avatar
-              sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}
-            >
+            <Avatar sx={{ m: 1, bgcolor: "primary.main", marginBottom: "15px" }}>
               <AssessmentIcon />
             </Avatar>
 
-            {/* Title */}
-            <Typography variant="h6" textAlign={"center"}>
+            <Typography variant="h6" textAlign="center">
               Batch Attendance
             </Typography>
 
-            {/* main form */}
             <Box
-              onSubmit={handelSubmit}
+              onSubmit={handleSubmit}
               component="form"
               sx={{ mt: 3, display: "flex", justifyContent: "center" }}
             >
               <Grid container spacing={2}>
-                {/* Select Batch */}
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
                     <InputLabel>Select Batch</InputLabel>
@@ -142,30 +141,29 @@ const ShowBatchAttendance = () => {
                   </FormControl>
                 </Grid>
 
-                {/* Select date */}
                 <Grid item xs={12} md={6}>
                   <FormControl fullWidth>
                     <TextField
-                      type="date"
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
+                      label="Select Month"
+                      type="month"
+                      value={month}
+                      onChange={(e) => setMonth(e.target.value)}
+                      required
                     />
                   </FormControl>
                 </Grid>
 
-                {/* Fetch Attendance Button */}
                 <Grid item xs={12} md={6}>
                   <Button
                     size="small"
                     variant="contained"
                     fullWidth
-                    onClick={handleFetchAttendance}
+                    onClick={handleSubmit}
                   >
                     Fetch Attendance
                   </Button>
                 </Grid>
 
-                {/* Save as pdf Button */}
                 <Grid item xs={12} md={6}>
                   <Button
                     size="small"
@@ -177,74 +175,45 @@ const ShowBatchAttendance = () => {
                   </Button>
                 </Grid>
 
-                {/* Error Messages */}
                 {error && (
-                  <Snackbar
-                    open={open}
-                    autoHideDuration={5000}
-                    onClose={handleClose}
-                  >
+                  <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
                     <Alert severity="error">{error}</Alert>
                   </Snackbar>
                 )}
 
-                {/* Main table */}
                 {attendanceDetails.length > 0 && (
                   <Grid item xs={12}>
                     <Typography align="center" variant="h6">
                       Attendance Details
                     </Typography>
-                    <TableContainer
-                      component={"paper"}
-                      sx={{ textAlign: "center" }}
-                    >
-                      <Table
-                        sx={{ textAlign: "center" }}
-                        stickyHeader
-                        aria-label="sticky table"
-                      >
+                    <TableContainer component={"paper"} sx={{ textAlign: "center" }}>
+                      <Table sx={{ textAlign: "center" }} stickyHeader aria-label="sticky table">
                         <TableHead>
                           <TableRow>
-                            <TableCell align="center">
-                              <b>ID</b>
-                            </TableCell>
-                            <TableCell align="center">
-                              <b>Name</b>
-                            </TableCell>
-                            <TableCell align="center">
-                              <b>Batch</b>
-                            </TableCell>
-                            <TableCell align="center">
-                              <b>Status</b>
-                            </TableCell>
+                            <TableCell align="center"><b>ID</b></TableCell>
+                            <TableCell align="center"><b>Name</b></TableCell>
+                            <TableCell align="center"><b>Total Present</b></TableCell>
+                            <TableCell align="center"><b>Total Absent</b></TableCell>
                           </TableRow>
                         </TableHead>
-                        {attendanceDetails.map((student) => (
-                          <TableBody>
-                            <TableRow>
+                        <TableBody>
+                          {attendanceDetails.map((student) => (
+                            <TableRow key={student.id}>
                               <TableCell align="center">
-                                <Typography variant="body2">
-                                  {student.id}
-                                </Typography>
+                                <Typography variant="body2">{student.id}</Typography>
                               </TableCell>
                               <TableCell align="center">
-                                <Typography variant="body2">
-                                  {student.name}
-                                </Typography>
+                                <Typography variant="body2">{student.name}</Typography>
                               </TableCell>
                               <TableCell align="center">
-                                <Typography variant="body2">
-                                  {student.batch}
-                                </Typography>
+                                <Typography variant="body2">{student.presentCount}</Typography>
                               </TableCell>
                               <TableCell align="center">
-                                <Typography variant="body2">
-                                  {student.status}
-                                </Typography>
+                                <Typography variant="body2">{student.absentCount}</Typography>
                               </TableCell>
                             </TableRow>
-                          </TableBody>
-                        ))}
+                          ))}
+                        </TableBody>
                       </Table>
                     </TableContainer>
                   </Grid>
@@ -259,3 +228,5 @@ const ShowBatchAttendance = () => {
 };
 
 export default ShowBatchAttendance;
+
+

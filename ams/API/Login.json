@@ -123,8 +123,8 @@
           "status": "Present"
         },
         {
-          "studentId": "2",
-          "status": "Present"
+          "studentId": "4",
+          "status": "Absent"
         },
         {
           "studentId": "3",
@@ -360,14 +360,6 @@
         },
         {
           "studentId": "14",
-          "status": "Present"
-        }
-      ]
-    },
-    "2024-07-07": {
-      "A": [
-        {
-          "studentId": "1",
           "status": "Present"
         }
       ]

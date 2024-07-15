@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useReactToPrint } from "react-to-print";
@@ -139,7 +149,6 @@ const StudentReport = () => {
               backgroundColor: "white",
               padding: "25px",
               borderRadius: "15px",
-              boxShadow: "5px 5px 8px #cecece",
             }}
           >
             
